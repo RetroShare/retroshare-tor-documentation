@@ -1,4 +1,4 @@
-% SiSU 5.0
+% SiSU 7.1
 
 @title: RetroShare And Tor
    :subtitle: A Manual For Configuration
@@ -7,7 +7,7 @@
   :prepared_by: Being, Morpheus
   
 @rights:
-  :copyright: Copyright (C) 2015. RetroShare Development Team
+  :copyright: Copyright (C) 2015. RetroShare Development Team.
   :licence: GPL
   
 
@@ -17,31 +17,37 @@
   :modified: 2015-07-15
 
 @classify:
-  :topic_register: Tor:RetroShare
-  :type:
-  :subject:
-  :description:
-  
+  :topic_register: Tor:RetroShare;RetroShare:MS Windows;RetroShare:Linux;RetroShare:MacOSX
+  :type: 
+  :subject: ebook,configuring tor
+  :description: A guide to configuring Tor to allow RetroShare to operate using onion routing
+
 :A~ @title
 
 1~ Introduction
 
+This document often refers to particular version numbers which are in the filenames. Please be aware that versions and hence filenames change much quicker than this document does, so please change the filenames as required and let us know, so we can update these instructions.
+
+For some tasks, you will need to use a text editor. On Linux, the default installed is vim, but you can also use nano, pico, gedit, emacs, gvim and many others - just use your favourite one. 
+={editor}
+
 2~ What is Tor
 
-The Onion Router (Tor) is a connection-oriented anonymizing communication service. Tor users choose a source-routed path through a set of nodes and negotiate a "virtual circuit" through the onion routed network. Each node knows its predecessor and successor but idealy no others. Traffic flowing down the Tor Network circuit is unwrapped by a symmetric key at each node, which reveals the downstream node.
+The Onion Router (Tor) is a connection-oriented anonymizing communication service. Tor users choose a source-routed path through a set of nodes and negotiate a !{virtual circuit}! through the onion routed network. Each node knows its predecessor and successor but idealy no others. Traffic flowing down the Tor Network circuit is unwrapped by a symmetric key at each node, which reveals the downstream node.
 
-The term "onion routing" refers to application layers of encryption, nested like the layers of an onion, used to anonymize communication. Tor encrypts the original data, including the destination IP address, multiple times and sends it through a virtual circuit comprising successive, randomly selected Tor relays. Each relay decrypts a layer of encryption to reveal only the next relay in the circuit in order to pass the remaining encrypted data on to it. The final relay decrypts the innermost layer of encryption and sends the original data to its destination without revealing, or even knowing, the source IP address. Because the routing of the communication is partly concealed at every hop in the Tor circuit, this method eliminates any single point at which the communication can be de-anonymized through network surveillance that relies upon knowing its source and destination. 
+The term !{onion routing}! refers to application layers of encryption, nested like the layers of an onion, used to anonymize communication. Tor encrypts the original data, including the destination IP address, multiple times and sends it through a virtual circuit comprising successive, randomly selected Tor relays. Each relay decrypts a layer of encryption to reveal only the next relay in the circuit in order to pass the remaining encrypted data on to it. The final relay decrypts the innermost layer of encryption and sends the original data to its destination without revealing, or even knowing, the source IP address. Because the routing of the communication is partly concealed at every hop in the Tor circuit, this method eliminates any single point at which the communication can be de-anonymized through network surveillance that relies upon knowing its source and destination. 
 
 Tor Reference: https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29
 
 2~ Why use Tor
 
-For RetroShare 0.6 users, Tor provides a distributed network of servers or relays ("onion routers") they can use after following the steps and examples listed in this wiki page. Tor users bounce their TCP streams — web traffic, ftp, ssh, etc. — around the onion routed network, and recipients, observers, and even the relays themselves have difficulty tracking the original source of the datastream. For RetroShare 0.6 users, Tor provides an added layer of security and anonymizing ability which additionally cloaks their local IP address.
+For RetroShare 0.6 users, Tor provides a distributed network of servers or relays (!{onion routers}!) they can use after following the steps and examples listed in this wiki page. Tor users bounce their TCP streams — web traffic, ftp, ssh, etc. — around the onion routed network, and recipients, observers, and even the relays themselves have difficulty tracking the original source of the datastream. For RetroShare 0.6 users, Tor provides an added layer of security and anonymizing ability which additionally cloaks their local IP address.
 
 2~ Requirements 
 
-* You must be using RetroShare v0.6+ (released mid 2015) either from a downloaded package or compiled by yourself.
-* The Tor binary must be installed and running on your operating system. 
+_* You must be using RetroShare v0.6+ (released mid 2015) either from a downloaded package or compiled by yourself.
+
+_* The Tor binary must be installed and running on your operating system. 
 
 Before starting installing and configuring Tor, please read and understand all of the information, as most problems are caused by not correctly completing one step before proceeding to the next.
 
@@ -53,7 +59,7 @@ _* Install onto your operating system the files of : tor and tor-geoipdb
 
 _* Create a folder for your Hidden Service
 
-_* Add the Hidden Service,Directory,Port information to your torrc file:
+_* Add the Hidden Service, Directory, Port information to your torrc file:
 
 code{
     
@@ -72,19 +78,19 @@ _* Now bootup your new Hidden Node Retroshare 0.6 Tor Hidden Service and enter t
 
 1~ The Onion Router (Tor) Installation
 
-Tor can be installed in a number of ways. In these steps, we'll outline and describe step-by-step 3 distinct ways to setup and successfully use Retroshare 0.6 thru the onion router (Tor):
+Tor can be installed in a number of ways. In these steps, we'll outline and describe step-by-step 3 distinct ways to setup and successfully use Retroshare 0.6 through the onion router (Tor):
 
-_* [Beginners Level] '''Tor browser bundle (TBB)'''. This can be used as the Tor Router as it includes its own Tor binary. This is enough if you are just going to be using the Tor Bundled browser for your Tor Internet connections. This is useful for occasional regular Retroshare 0.6 routed through Tor to a friends Retroshare 0.6 Hidden Node (Tor Hidden Service). The Tor browser bundle must be up and running for the Tor connection to be enabled and is shut-down when the Tor browser bundle is exited or closed.
+_* [Beginners Level] !{Tor browser bundle (TBB)}!. This can be used as the Tor Router as it includes its own Tor binary. This is enough if you are just going to be using the Tor Bundled browser for your Tor Internet connections. This is useful for occasional regular Retroshare 0.6 routed through Tor to a friends Retroshare 0.6 Hidden Node (Tor Hidden Service). The Tor browser bundle must be up and running for the Tor connection to be enabled and is shut-down when the Tor browser bundle is exited or closed.
 
-_* [Advanced Level] '''The Vidalia-Tor Bundle'''. This is the preferred Windows Users installation because it is both tiny and fast. You simply instruct your system to start the Vidalia Gui as your system boots up. The Tor binary ( The Onion Router ) only uses a small amount of systems resources which in nearly all cases is hardly even noticed. The outlined steps can be used following the included examples and applied to all computer platforms supporting Vidalia-Tor.
+_* [Advanced Level] !{The Vidalia-Tor Bundle}!. This is the preferred Windows Users installation because it is both tiny and fast. You simply instruct your system to start the Vidalia Gui as your system boots up. The Tor binary ( The Onion Router ) only uses a small amount of systems resources which in nearly all cases is hardly even noticed. The outlined steps can be used following the included examples and applied to all computer platforms supporting Vidalia-Tor.
 
-_* [Expert Level] '''The Tor (compiled) binary alone''' (which is installed in the system files). Many RetroShare 0.6 through Tor users following the suggested outlined steps and examples are fully capable of doing this themselves.
+_* [Expert Level] !{The Tor (compiled) binary alone}! (which is installed in the system files). Many RetroShare 0.6 through Tor users following the suggested outlined steps and examples are fully capable of doing this themselves.
 
 2~ RetroShare 0.6 Modes of Use With Tor
 
-RetroShare 0.6 thru Tor can be used in one of two ways:
+RetroShare 0.6 through Tor can be used in one of two ways:
 
-_* Regular RetroShare 0.6 thru Tor to a RetroShare 0.6 hidden node routed through tor. This method relies on the tor binary, geoip, geoip6 tor library and the torrc configuration file which is installed with the TBB (Tor Browser Bundle), or the Vidalia-Tor Bundle or the Tor system file with the tor-geoipdb files. 
+_* Regular RetroShare 0.6 through Tor to a RetroShare 0.6 hidden node routed through tor. This method relies on the tor binary, geoip, geoip6 tor library and the torrc configuration file which is installed with the TBB (Tor Browser Bundle), or the Vidalia-Tor Bundle or the Tor system file with the tor-geoipdb files. 
 
 _* Hidden Node RetroShare 0.6 through Tor operating as a hidden service. This method outlined in steps 2 and 3 below does not rely on the Tor Browser Bundle and requires above average computer knowledge and abilities.
  
@@ -93,7 +99,9 @@ _* Hidden Node RetroShare 0.6 through Tor operating as a hidden service. This me
 Download the newest Tor Binary and install it on your system via this URL: https://www.torproject.org/download/download.html.en . For other GNU/Linux Systems the latest Tor Binary Stable as well as unstable builds can also be found there.
 
 For more information about installing on:
+
 _* Windows, visit https://www.torproject.org/docs/tor-doc-windows.html.en. If you want to use Tor as a client for other applications, download one of the Vidalia bundles and turn it into a client (Settings -> Sharing -> Run as a client only). Use Vidalia for configuration and testing operation on Windows.
+
 _* MacOSX, visit https://www.torproject.org/docs/tor-doc-osx.html.en.
 
 2~ Reference Linux Files 
@@ -119,11 +127,11 @@ code{
 You make this tiny change in Retroshare 0.6 Options -> Network -> Tor Configuration where you simply adjust the outgoing port to 9150. A shiny green button should confirm your Tor router is operating (The Tor Browser Bundle must be concurrently running).
 
 
-To briefly test your ability to now connect to Tor confirm your Tor connection via accessing this link: https://check.torproject.org/ If you are connected successful via Tor that page will tell you. To see which Tor exit node nation you are currently using and other specific Tor exit node information you can now learn that via this link: https://atlas.torproject.org/#details/E35368CB2E50CBB7DAA0075696F0097FF592BB25
+To briefly test your ability to now connect to Tor confirm your Tor connection via accessing this link: https://check.torproject.org/ If you are connected successful via Tor that page will tell you. To see which Tor exit node nation you are currently using and other specific Tor exit node information you can now learn that via this link: https://atlas.torproject.org/#details/E35368CB2E50CBB7DAA0075696F0097FF592BB25 .
 
 These temporary tests serve to confirm you are successfully running Tor. The Tor Browser Bundle is built to specifically allow beginners and advanced users surf the internet and various Tor onion websites with as much privacy and security as possible.
 
-With the tiny adjustment of the outgoing port in the Retroshare 0.6 Tor Configuration area (to 9150) you can now connect your Regular Retroshare 0.6 thru Tor to your Retroshare 0.6 Tor Hidden Node friends, provided you are concurrently running your Tor Browser Bundle.
+With the tiny adjustment of the outgoing port in the Retroshare 0.6 Tor Configuration area (to 9150) you can now connect your Regular Retroshare 0.6 through Tor to your Retroshare 0.6 Tor Hidden Node friends, provided you are concurrently running your Tor Browser Bundle.
 
 1~ Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
 
@@ -147,14 +155,14 @@ code{
 
 }code
 
-It is best to copy torrc,geoip and geoip6 into a user created data folder instead of using the restricted system file system area. This also allows the use of a custom torrc file just for private use with Vidalia while keeping the system file area torrc file for use solely with my systems tor binary alone.
+It is best to copy torrc, geoip and geoip6 into a user created data folder instead of using the restricted system file system area. This also allows the use of a custom torrc file just for private use with Vidalia while keeping the system file area torrc file for use solely with my systems tor binary alone.
 
-It is possible to use the system files area torrc with the needed changes and geoip,geoip6 as is or chose to Optionally copy those files into a user area created data folder and work on those as a regular user, not restricted to doing this as an administrator,root,superuser,debian-tor user.
+It is possible to use the system files area torrc with the needed changes and geoip, geoip6 as is or chose to Optionally copy those files into a user area created data folder and work on those as a regular user, not restricted to doing this as an administrator,root,superuser,debian-tor user.
 
 
 A user-created data folder is easily done by creating a Vidalia-Data folder, copying your torrc, geoip, geoip6 files to it and then reconfiguring your torrc file and Vidalia Gui settings to the new torrc and tor data path. 
 
-Make a new user folder
+Make a new user folder by
 
 code{
     
@@ -201,6 +209,7 @@ code{
 }code
 
 Example complete torric file cd ~/vidalia-data/torrc
+
 code{
     
     [text_editor] torrc
@@ -225,7 +234,22 @@ TOR Socks Proxy 127.0.0.1  9050  Green Light Outgoing Okay!
 Congratulations, you can now connect to Hidden Nodes even as you run RetroShare standard nodes operations and to those that run Hidden Services, they can now swap their Tor RetroShare v0.6 public keys with you.
 
 
-Shut down your tor binary if it is running. On a Gnu/Linux system confirm using <pre>top</pre> or issue <pre>killall tor </pre>
+Shut down your tor binary if it is running. On a Gnu/Linux system confirm using:
+
+code{
+    
+    top
+
+}code
+
+or issue 
+
+code{
+    
+    killall tor
+    
+}code
+    
 
 First, create your hidden-service folder using something similar to this example:
 
@@ -256,7 +280,7 @@ code{
 
 Note, You can change either port to another port number as you wish prior to creating your hostname, private_key files. Of course your HiddenServiceDir folder path is going to be different so use my example only as an example also. 
 
- Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+3~ Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
 
 Settings:
 
@@ -284,9 +308,9 @@ code{
     
 }code
 
- Optionally use a text editor to configure Vidalia Hidden Service Data information
+3~ Optionally use a text editor to configure Vidalia Hidden Service Data information
 
-Using a text editor, open vidalia.conf in the ~/.vidalia folder Make your changes following these examples. Note: Again,your file paths will differ and your onion address will certainly be different. Lines 24-37 
+Using a text editor, open vidalia.conf in the ~/.vidalia folder Make your changes following these examples. Note: Again,your file paths will differ and your onion address will certainly be different. Lines 24-37: 
 
 code{
     
@@ -345,28 +369,32 @@ Now, Generate your new RetroShare 0.6 Tor as a Hidden Service instance. Select a
 Once the RetroShare hidden service has started and you are logged in, select the Options tool: 
 
 _* RS06 Options -> Network -> Tor Configuration -> Incoming TOR Connections
+
 _* Set Local Address to port 12080
+
 _* Set Onion Address to what you copied from your hostname file and port 11040
+
 _* Chose OK to close and save your changes 
 
 then
 
 _* RS06 Options -> Server -> Network Configuration
+
 _* Recheck your Local Address 127.0.0.1 which should now reflect Port 12080 
 
 Again both of the above port numbers used are simply as an example, you are free to use them as given or change them at as noted. 
 
-Congratulations, this completes the steps to successfully enable a Hidden Node Retroshare 0.6 instance thru the Vidalia-Tor bundle as a Tor Hidden Service.
+Congratulations, this completes the steps to successfully enable a Hidden Node Retroshare 0.6 instance through the Vidalia-Tor bundle as a Tor Hidden Service.
 
-1~ Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 thru Tor as a Hidden Service Configuration [Expert Level]
+1~ Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
 
 The use of the system files Tor binary alone (not using Vidalia) is termed 'Expert' level by the Tor project developers. Administrative (Windows) or Root/Superuser (Linux) level permissions are needed and used to access, read, write the resulting torrc updates and Hidden Service files. The following steps will help you accomplish this but at this Tor user level you should already know how to proceed step by step in this Expert Tor level if you go this route. 
 
-Many Non-Windows users will want to bypass the previous Beginner (Tor Browser Bundle) and Advanced Vidalia-Tor Bundled steps previously outlined as the Vidalia gui is no longer being updated nor bundled with the Tor binary for non-windows platforms. Although the sole use of the tiny systems file binary is considered expert level, its not difficult for most computer savy users and administrators to follow the following examples and successfully apply them on their Windows,Linux,Mac systems with few changes from the examples provided here.
+Many Non-Windows users will want to bypass the previous Beginner (Tor Browser Bundle) and Advanced Vidalia-Tor Bundled steps previously outlined as the Vidalia gui is no longer being updated nor bundled with the Tor binary for non-windows platforms. Although the sole use of the tiny systems file binary is considered expert level, it's not difficult for most computer savy users and administrators to follow the following examples and successfully apply them on their Windows,Linux,Mac systems with few changes from the examples provided here.
 
 Install the newest Tor binary onto your system files using the following reference links. Many Linux repositorys also have the newest Tor binary also.
 
-Tor Binary Only Downloads from Torprojet.org
+Tor Binary Only Downloads from torprojet.org
 Windows https://www.torproject.org/download/download.html.en
 Windows https://www.torproject.org/dist/torbrowser/4.0.3/tor-win32-tor-0.2.5.10.zip
 Unix,Linux, BSD https://www.torproject.org/download/download-unix.html.en
@@ -428,14 +456,14 @@ Note: Older versions of the Tor Binary were stored in other system file location
 
 For example /usr/local/bin
 
-Example for Tor Hidden Service Folder Name with paths,ports. Your system paths will be different, your hidden service folder name and ports can be the same or changed as you wish then applied to the torrc file edit. Skip these hidden service steps if you only want Regular RS06 to connect to a Tor RS06 Hidden Service.
+Example for Tor Hidden Service Folder Name with paths, ports. Your system paths will be different, your hidden service folder name and ports can be the same or changed as you wish then applied to the torrc file edit. Skip these hidden service steps if you only want Regular RS06 to connect to a Tor RS06 Hidden Service.
 
 code{
     
     HiddenServiceDir /home/name/hideserv
     HiddenServicePort 11040 127.0.0.1:12080
-}code
 
+}code
 
 Create your Tor Hidden Service Folder
 
@@ -448,6 +476,7 @@ code{
 Rename the existing torrc file to torrc-original. Then using a text editor add and edit the following complete torrc file example then save it as torrc to the same folder.
 
 Complete torrc file in /etc/tor system folder:
+
 code{
     
     # This file was generated by Tor; if you edit it, comments will not be preserved
@@ -494,6 +523,7 @@ Note: At the time of adding the beginning,advanced and expert tor level steps fo
 2~ Configuration of Tor Bridges
 
 Tor Bridges are essentially unlisted Tor Relays. As there is no public list of them, Nations and ISP's blocking public known Tor relays very unlikely to block private unlisted Tor bridges.
+={tor:bridge:what is}
 
 Tor Bridges represent a important push-back and resistance to any outright blocking Tor by governments and ISPs.
 
@@ -512,12 +542,14 @@ _* Use some of the public bridges
 To use private bridges, ask your friends to run Vidalia and Tor in an uncensored area of the Internet, and then click on Help censored users in Vidalia's Relay settings page. Then they should privately send you the Bridge address line at the bottom of their Relay page. Unlike running an exit relay, running a bridge relay just passes data to and from the Tor network, so it shouldn't expose the operator to any abuse complaints. 
 
 You can find public bridge addresses by visiting https://bridges.torproject.org. The answers you get from that page will change every few days, so check back periodically if you need more bridge addresses.
+={tor:bridge:find}
 
 Another way to find public bridge addresses is to send mail to bridges@torproject.org with the line get bridges by itself in the body of the mail. However, to make it harder for an attacker to learn lots of bridge addresses, you must send this request from a Gmail account. 
 
 Configuring more than one bridge address will make your Tor connection more stable, in case some of the bridges become unreachable. 
 
 BridgeDB https://bridges.torproject.org/
+={tpr:bridges}
 
 It is important to get working Tor Bridges that do not require any pluggable transports nor IPv6 addressing: https://bridges.torproject.org/options
 
@@ -536,6 +568,7 @@ code{
 Using the Vidalia Gui or Tor Button on the Tor Browser, select 'Tor Network Settings'. Check box to 'My ISP blocks connections to the Tor network'. And enter each of the bridge lines you received in the above steps one at a time. Adding more than one Tor Bridge address line will make your Tor connection more stable and added insurance in case any of the other Tor bridges become unreachable.
 
 Sharing your private Tor Bridge to help Tor friends overcome censorship and Internet blocking.
+={tor:bridge;censorship;internet blocking}
 
 It is also possible to setup a free Tor Bridge using the Amazon EC2 cloud computing platform. The Tor Cloud project images quickly and easily setup your private Tor Bridge via a Tor Bridge virtual machine cloud based image.
 
@@ -546,8 +579,11 @@ For higher security, obfuscation protocol plugins are used to camouflage the Tor
 Some examples are
 
 _* obfs2
+
 _* obfs3 (this is the recommended solution),
+
 _* scramblesuit; and
+
 _* fte.
 
 2~ Links for More Information
@@ -557,16 +593,19 @@ _* https://cloud.torproject.org/
 _* https://cloud.torproject.org/#get_started
 
 _* https://www.torproject.org/docs/bridges#PluggableTransports
+
 _* Vidalia Bridge Bundle
   A Vidalia Bundle which is already configured for the user to quickly and easily be a Tor Bridge by default to help RetroShare 06 Tor users bypass Nations and ISPs which attempt to censor and prevent users from using the Tor Network.
   Tor Project Download Page https://www.torproject.org/download/download.html.en
+  
 _* Vidalia Bridge Bundle (For Windows)
 https://www.torproject.org/dist/vidalia-bundles/vidalia-bridge-bundle-0.2.4.23-0.2.21.exe
+
 _* vidalia-bridge-bundle-0.2.4.23-0.2.21.exe
 
 2~ More Information For The Curious
 
-The RS06 developers did not automate the process of modifying the torrc file and creating the hidden service folder because there are different restrictions using the system files tor binary vs the user located Tor binary in the Tor Browser Bundle. The system files Tor binary requires administrative/root/debian-tor permissions to read/write/modify the torrc file in the system file and in the Hidden Service folder. 
+The RS06 developers did not automate the process of modifying the torrc file and creating the hidden service folder because there are different restrictions using the system files tor binary versus the user located Tor binary in the Tor Browser Bundle. The system files Tor binary requires administrative/root/debian-tor permissions to read/write/modify the torrc file in the system file and in the Hidden Service folder. 
 
 It is important for computer security to prevent third party application with administrative/root/debian-tor permissions as a superuser on computer systems. To use the Tor binary in system files and not have to concurrently use the Tor Browser bundle while running multiple Tor applications including the RS06 Hidden Node. 
 
@@ -584,14 +623,21 @@ These issues can be solved by adding the tiny Vidalia Gui interface which also a
 Useful links to visit:
 
 _* https://www.torproject.org/
+
 _* https://blog.torproject.org/
+
 _* https://www.torproject.org/projects/torbrowser.html.en
 
 Onion sites:
 
 _* Caves Tor hidden retrochat: http://chat7zlxojqcf3nv.onion/
+
 _* Silk Road 2.0 Url: http://silkroad6ownowfk.onion
+
 _* Agora Onion Address Tor http://agorabasgefge4qo.onion
+
 _* Utopia Market URL: http://ggvow6fj3sehlm45.onion
+
 _* RoadSilk url: http://yjhzeedl5osagmmr.onion
+
 _* White rabbit marketplace URL (Tor): http://rabbittorvr74veg.onion
