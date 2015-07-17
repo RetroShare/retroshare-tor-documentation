@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s04 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s03.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s05.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s01.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s01.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s02.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s02.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s03.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s04.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s04.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s04.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s05.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s06.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s06.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#180">
+    Tor Stealth Mode
+  </a>
+  </h5>
+
+<h6 class="minitoc">
+      <a href="s06.html#181">
+  What is a Tor Hidden Service Stealth Mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#183">
+  Why use a Tor Hidden Service Stealth mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#187">
+  Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#211">
+  Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+</a>
+  </h6>
+
+<h5 class="minitoc">
+      <a href="s06.html#232">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s07.html" target="_top">
+    FAQ
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s08.html" target="_top">
+    RetroShare FeedReader Via Tor
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s09.html" target="_top">
+    Tor Country Codes
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s10.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#48" class="lnkocn">48</a></label>
+  <h1 class="norm" id="48"><a name="48"></a>
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#49" class="lnkocn">49</a></label>
+  <p class="i0" id="49">
+    Regular, persistant users of the Tor Router generally want to run the tiny Tor Binary alone or in conjunction with the Vidalia Gui interface without the need to have the Tor Browser Bundle running full time to remain connected to the Tor Network.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#50" class="lnkocn">50</a></label>
+  <p class="i0" id="50">
+    The Vidalia Gui interface also provides an efficient system tray icon showing your Tor status and the Gui interface provides users with functions similar to those found in the Tor Button on the Tor Browser and additional Tor user editing options.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#51" class="lnkocn">51</a></label>
+  <p class="i0" id="51">
+    Although the Vidalia Gui application has not been actively upgraded during the past 2yrs, it is often bundled with Windows Tor applications but left out of the Tor Project non-Windows Tor bundles. Non-Windows system repositorys often still offer vidalia for users to optionally install if they chose.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#52" class="lnkocn">52</a></label>
+  <p class="i0" id="52">
+    The Vidalia configuration settings and file must point to where you have tor,torrc,geoip and geoip6 files stored.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#53" class="lnkocn">53</a></label>
+  <p class="i0" id="53">
+    Tor System Files Locations (linux examples)
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#54" class="lnkocn">54</a></label>
+  <p class="code" id="54">
+    &nbsp;&nbsp;&nbsp;&nbsp;/usr/bin/tor &lt;-- tor binary file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/etc/tor/torrc &lt;-- torrc file (tor configuration file)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/tor/geoip &lt;-- geoip file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/tor/geoip6 &lt;-- geoip6 file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/home/name/.vidalia/vidalia.conf &lt;-- Vidalia configuration file<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#55" class="lnkocn">55</a></label>
+  <p class="i0" id="55">
+    It is best to copy torrc, geoip and geoip6 into a user created data folder instead of using the restricted system file system area. This also allows the use of a custom torrc file just for private use with Vidalia while keeping the system file area torrc file for use solely with my systems tor binary alone.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#56" class="lnkocn">56</a></label>
+  <p class="i0" id="56">
+    It is possible to use the system files area torrc with the needed changes and geoip, geoip6 as is or chose to Optionally copy those files into a user area created data folder and work on those as a regular user, not restricted to doing this as an administrator,root,superuser,debian-tor user.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#57" class="lnkocn">57</a></label>
+  <p class="i0" id="57">
+    A user-created data folder is easily done by creating a Vidalia-Data folder, copying your torrc, geoip, geoip6 files to it and then reconfiguring your torrc file and Vidalia Gui settings to the new torrc and tor data path.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#58" class="lnkocn">58</a></label>
+  <p class="i0" id="58">
+    Make a new user folder by
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#59" class="lnkocn">59</a></label>
+  <p class="code" id="59">
+    &nbsp;&nbsp;&nbsp;&nbsp;mkdir vidalia-data<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#60" class="lnkocn">60</a></label>
+  <p class="i0" id="60">
+    Copy the torrc and tor data files Either from the Tor Browser Bundle Or from your system files to your new vidalia-data folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#61" class="lnkocn">61</a></label>
+  <p class="code" id="61">
+    &nbsp;&nbsp;&nbsp;&nbsp;cd ~/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Tor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cp * ~/vidalia-data<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#62" class="lnkocn">62</a></label>
+  <p class="i0" id="62">
+    or
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#63" class="lnkocn">63</a></label>
+  <p class="code" id="63">
+    &nbsp;&nbsp;&nbsp;&nbsp;cp /etc/tor/torrc ~/vidalia-data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cp /var/lib/tor/geo* ~/vidalia-data<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#64" class="lnkocn">64</a></label>
+  <p class="code" id="64">
+    &nbsp;&nbsp;&nbsp;&nbsp;sudo chown name -R /home/name/vidalia-data<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#65" class="lnkocn">65</a></label>
+  <p class="i0" id="65">
+    Your new vidalia-data user folder should now contain the torrc, geoip and geoip6 files.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#66" class="lnkocn">66</a></label>
+  <p class="i0" id="66">
+    Using the Vidalia Control Panel (Settings --&gt; Advanced tab) Or a text editor on the vidalia.conf file, update to the new paths for DataDirectory and Torrc to point to your new vidalia-data folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#67" class="lnkocn">67</a></label>
+  <p class="code" id="67">
+    &nbsp;&nbsp;&nbsp;&nbsp;cd ~/vidalia-data/vidalia.conf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataDirectory=/home/name/vidalia-data &lt;-- Use your path to vidalia-data folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TorExecutable=/usr/bin/tor &lt;-- Use your path to tor binary file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Torrc=/home/name/vidalia-data/torrc &lt;-- Use your path to torrc<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#68" class="lnkocn">68</a></label>
+  <p class="i0" id="68">
+    Example complete torric file cd &#126;/vidalia-data/torrc
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#69" class="lnkocn">69</a></label>
+  <p class="code" id="69">
+    &nbsp;&nbsp;&nbsp;&nbsp;[text_editor] torrc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ControlPort 9051<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataDirectory /home/name/vidalia-data &lt;-- Use your path to folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DirReqStatistics 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GeoIPFile /home/name/vidalia-data/geoip &lt;-- Use your path to geoip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GeoIPv6File /home/name/vidalia-data/geoip6 &lt;-- Use your path to geoip6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# Uncomment Hidden Service Dir,Port later if running Hidden Node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# HiddenServiceDir /home/name/hideserv &lt;-- Use your path,filename, example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# HiddenServicePort 11040 127.0.0.1:12080 &lt;-- Use your ports, example only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Log notice stdout<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SocksPort 9050<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#70" class="lnkocn">70</a></label>
+  <p class="i0" id="70">
+    Upon confirmation the Tor router is operating properly on your system then start your regular Retroshare 0.6.0 instance and in your Options window -&gt; Network -&gt; select Tor Configuration then check that your TOR Socks Proxy port is set to 9050.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#71" class="lnkocn">71</a></label>
+  <p class="i0" id="71">
+    TOR Socks Proxy 127.0.0.1 9050 Green Light Outgoing Okay!
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#72" class="lnkocn">72</a></label>
+  <p class="i0" id="72">
+    Congratulations, you can now connect to Hidden Nodes even as you run RetroShare standard nodes operations and to those that run Hidden Services, they can now swap their Tor RetroShare v0.6 public keys with you.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#73" class="lnkocn">73</a></label>
+  <p class="i0" id="73">
+    Shut down your tor binary if it is running. On a Gnu/Linux system confirm using:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#74" class="lnkocn">74</a></label>
+  <p class="code" id="74">
+    &nbsp;&nbsp;&nbsp;&nbsp;top<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#75" class="lnkocn">75</a></label>
+  <p class="i0" id="75">
+    or issue
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#76" class="lnkocn">76</a></label>
+  <p class="code" id="76">
+    &nbsp;&nbsp;&nbsp;&nbsp;killall tor<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#77" class="lnkocn">77</a></label>
+  <p class="i0" id="77">
+    First, create your hidden-service folder using something similar to this example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#78" class="lnkocn">78</a></label>
+  <p class="code" id="78">
+    &nbsp;&nbsp;&nbsp;&nbsp;mkdir /home/name/hideserv<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#79" class="lnkocn">79</a></label>
+  <p class="i0" id="79">
+    Next add the Hidden Service path and ports to your torrc configuration file:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#80" class="lnkocn">80</a></label>
+  <p class="i0" id="80">
+    Add the following to your torrc file using a text editor and save it. If you are using my suggestion option of a user created vidalia-data folder then that is the torrc file you will be editing. Example
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#81" class="lnkocn">81</a></label>
+  <p class="code" id="81">
+    &nbsp;&nbsp;&nbsp;&nbsp;gedit /home/name/vidalia-data/torrc &lt;-- Your path will differ<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#82" class="lnkocn">82</a></label>
+  <p class="i0" id="82">
+    and add
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#83" class="lnkocn">83</a></label>
+  <p class="code" id="83">
+    &nbsp;&nbsp;&nbsp;&nbsp;HiddenServiceDir /home/name/hideserv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiddenServicePort 11040 127.0.0.1:12080<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#84" class="lnkocn">84</a></label>
+  <p class="i0" id="84">
+    Note, You can change either port to another port number as you wish prior to creating your hostname, private_key files. Of course your HiddenServiceDir folder path is going to be different so use my example only as an example also.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#85" class="lnkocn">85</a></label>
+  <p class="bold" id="85"><a name="85"></a> 
+    Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#86" class="lnkocn">86</a></label>
+  <p class="i0" id="86">
+    Settings:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#87" class="lnkocn">87</a></label>
+  <p class="code" id="87">
+    &nbsp;&nbsp;&nbsp;&nbsp;[General Tab]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Start the Tor software when Vidalia starts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/usr/bin/tor &lt;-- Where your tor binary file is found<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Sharing Tab]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Run as a client only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Services]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Onion Address: xa76giaf6ifda7ri63i263.onion &lt;-- Yours will be different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Virtual Port: 11040 &lt;-- From the above Port example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Target: 127.0.0.1:12080 &lt;-- From the above Stepped Port example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Directory Path: /home/name/hideserv &lt;-- From the above example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Enabled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Advanced Tab]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tor Control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Use TCP connection (ControlPort)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Address 127.0.0.1:9051<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tor Configuration File<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/home/[name]/vidalia-data/torrc &lt;-- Example yours will vary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Data Directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/home/[name]/vidalia-data &lt;-- Example yours will vary<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#88" class="lnkocn">88</a></label>
+  <p class="bold" id="88"><a name="88"></a> 
+    Optionally use a text editor to configure Vidalia Hidden Service Data information
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#89" class="lnkocn">89</a></label>
+  <p class="i0" id="89">
+    Using a text editor, open vidalia.conf in the &#126;/.vidalia folder Make your changes following these examples. Note: Again,your file paths will differ and your onion address will certainly be different. Lines 24-37:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#90" class="lnkocn">90</a></label>
+  <p class="code" id="90">
+    &nbsp;&nbsp;&nbsp;&nbsp;[Network]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ProxyType=none<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Server]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NonExitRelay=false<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Service]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Services=xa76giaf6ifda7ri63i263.onion#11040#127.0.0.1:12080#/home/name/hideserv#\x1#<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Tor]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ControlMethod=ControlPort<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataDirectory=/home/name/vidalia-data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TorExecutable=/usr/bin/tor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Torrc=/home/name/vidalia-data/torrc<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#91" class="lnkocn">91</a></label>
+  <p class="i0" id="91">
+    Now start Vidalia which should start tor, the Tor Binary then will write two files into your user created hideserv folder (hostname and private_key) if not encountering errors in your torrc file or failure to bind the needed tor port.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#92" class="lnkocn">92</a></label>
+  <p class="i0" id="92">
+    If tor errors out being unable to bind to the needed tor port, its likely to have encountered another tor instance running already which must be shut-down before trying again. If this happens at this stage then select in Vidalia shut-down tor and then on your terminal command line enter these commands:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#93" class="lnkocn">93</a></label>
+  <p class="code" id="93">
+    &nbsp;&nbsp;&nbsp;&nbsp;tor --service state stop<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#94" class="lnkocn">94</a></label>
+  <p class="i0" id="94">
+    Or alternatively
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#95" class="lnkocn">95</a></label>
+  <p class="code" id="95">
+    &nbsp;&nbsp;&nbsp;&nbsp;top<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;kill [tor PID]<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#96" class="lnkocn">96</a></label>
+  <p class="i0" id="96">
+    or
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#97" class="lnkocn">97</a></label>
+  <p class="code" id="97">
+    &nbsp;&nbsp;&nbsp;&nbsp;killall tor<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#98" class="lnkocn">98</a></label>
+  <p class="i0" id="98">
+    Upon successfully creating a new Tor Circuit wait a few minutes then in Vidalia choose shut-down tor.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#99" class="lnkocn">99</a></label>
+  <p class="i0" id="99">
+    Using a text editor, open the /home/name/hideserv/hostname file and copy the onion address listed inside it. Make a note of the onion address along with the hiddenservice port information you placed into your torrc file such as (HiddenServicePort 11040 127.0.0.1:12080) as these are needed when next creating the new hidden RetroShare node.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#100" class="lnkocn">100</a></label>
+  <p class="i0" id="100">
+    After ensuring that Tor is operational with your new HiddenService torrc additions and the tor binary has generated your new hostname, private_key files, continue:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#101" class="lnkocn">101</a></label>
+  <p class="i0" id="101">
+    Now, Generate your new RetroShare 0.6 Tor as a Hidden Service instance. Select at RetroShare start-up 'Manage and nodes...' and check-mark the 'Create a new Identity' box and the 'Create a hidden node' box and then as the certificate information is requested manually adding the Tor generated Onion address where Tor Address is requested and Port 11040 .
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#102" class="lnkocn">102</a></label>
+  <p class="i0" id="102">
+    Once the RetroShare hidden service has started and you are logged in, select the Options tool:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#103" class="lnkocn">103</a></label>
+  <ul>
+  <li class="bullet" id="103">
+    RS06 Options -&gt; Network -&gt; Tor Configuration -&gt; Incoming TOR Connections
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#104" class="lnkocn">104</a></label>
+  <ul>
+  <li class="bullet" id="104">
+    Set Local Address to port 12080
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#105" class="lnkocn">105</a></label>
+  <ul>
+  <li class="bullet" id="105">
+    Set Onion Address to what you copied from your hostname file and port 11040
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#106" class="lnkocn">106</a></label>
+  <ul>
+  <li class="bullet" id="106">
+    Chose OK to close and save your changes
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#107" class="lnkocn">107</a></label>
+  <p class="i0" id="107">
+    then
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#108" class="lnkocn">108</a></label>
+  <ul>
+  <li class="bullet" id="108">
+    RS06 Options -&gt; Server -&gt; Network Configuration
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#109" class="lnkocn">109</a></label>
+  <ul>
+  <li class="bullet" id="109">
+    Recheck your Local Address 127.0.0.1 which should now reflect Port 12080
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#110" class="lnkocn">110</a></label>
+  <p class="i0" id="110">
+    Again both of the above port numbers used are simply as an example, you are free to use them as given or change them at as noted.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#111" class="lnkocn">111</a></label>
+  <p class="i0" id="111">
+    Congratulations, this completes the steps to successfully enable a Hidden Node Retroshare 0.6 instance through the Vidalia-Tor bundle as a Tor Hidden Service.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s03.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s05.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

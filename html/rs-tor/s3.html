@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s3 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s2.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s4.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s1.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s1.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s1.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s1.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s2.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s2.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s2.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s2.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s3.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s4.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s4.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s4.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s5.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s6.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s6.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s6.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s6.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s6.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s6.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s6.html#180">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s7.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#41" class="lnkocn">41</a></label>
+  <h1 class="norm" id="41"><a name="41"></a>
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#42" class="lnkocn">42</a></label>
+  <p class="i0" id="42">
+    Once the Tor Browser Bundle is installed on your system, to connect to a Retroshare 0.6 friend who is operating a Tor based Hidden Node Retroshare 0.6, all that is required is set your Retroshare 0.6 Tor Configuration to port 9150.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#43" class="lnkocn">43</a></label>
+  <p class="code" id="43">
+    &nbsp;&nbsp;&nbsp;&nbsp;TOR Socks Proxy 127.0.0.1 (Port) 9150 Outgoing<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#44" class="lnkocn">44</a></label>
+  <p class="i0" id="44">
+    You make this tiny change in Retroshare 0.6 Options -&gt; Network -&gt; Tor Configuration where you simply adjust the outgoing port to 9150. A shiny green button should confirm your Tor router is operating (The Tor Browser Bundle must be concurrently running).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#45" class="lnkocn">45</a></label>
+  <p class="i0" id="45">
+    To briefly test your ability to now connect to Tor confirm your Tor connection via accessing this link: ‹<a href="https://check.torproject.org/" target="_top">https://check.torproject.org/</a>› If you are connected successful via Tor that page will tell you. To see which Tor exit node nation you are currently using and other specific Tor exit node information you can now learn that via this link: ‹<a href="https://atlas.torproject.org/#details/E35368CB2E50CBB7DAA0075696F0097FF592BB25" target="_top">https://atlas.torproject.org/#details/E35368CB2E50CBB7DAA0075696F0097FF592BB25</a>› .
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#46" class="lnkocn">46</a></label>
+  <p class="i0" id="46">
+    These temporary tests serve to confirm you are successfully running Tor. The Tor Browser Bundle is built to specifically allow beginners and advanced users surf the internet and various Tor onion websites with as much privacy and security as possible.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#47" class="lnkocn">47</a></label>
+  <p class="i0" id="47">
+    With the tiny adjustment of the outgoing port in the Retroshare 0.6 Tor Configuration area (to 9150) you can now connect your Regular Retroshare 0.6 through Tor to your Retroshare 0.6 Tor Hidden Node friends, provided you are concurrently running your Tor Browser Bundle.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s2.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s4.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

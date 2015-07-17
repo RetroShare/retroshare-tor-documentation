@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s05 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s04.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s01.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s01.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s02.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s02.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s03.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s04.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s04.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s04.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s05.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s06.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s06.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#180">
+    Tor Stealth Mode
+  </a>
+  </h5>
+
+<h6 class="minitoc">
+      <a href="s06.html#181">
+  What is a Tor Hidden Service Stealth Mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#183">
+  Why use a Tor Hidden Service Stealth mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#187">
+  Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#211">
+  Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+</a>
+  </h6>
+
+<h5 class="minitoc">
+      <a href="s06.html#232">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s07.html" target="_top">
+    FAQ
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s08.html" target="_top">
+    RetroShare FeedReader Via Tor
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s09.html" target="_top">
+    Tor Country Codes
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s10.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#112" class="lnkocn">112</a></label>
+  <h1 class="norm" id="112"><a name="112"></a>
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#113" class="lnkocn">113</a></label>
+  <p class="i0" id="113">
+    The use of the system files Tor binary alone (not using Vidalia) is termed 'Expert' level by the Tor project developers. Administrative (Windows) or Root/Superuser (Linux) level permissions are needed and used to access, read, write the resulting torrc updates and Hidden Service files. The following steps will help you accomplish this but at this Tor user level you should already know how to proceed step by step in this Expert Tor level if you go this route.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#114" class="lnkocn">114</a></label>
+  <p class="i0" id="114">
+    Many Non-Windows users will want to bypass the previous Beginner (Tor Browser Bundle) and Advanced Vidalia-Tor Bundled steps previously outlined as the Vidalia gui is no longer being updated nor bundled with the Tor binary for non-windows platforms. Although the sole use of the tiny systems file binary is considered expert level, it's not difficult for most computer savy users and administrators to follow the following examples and successfully apply them on their Windows,Linux,Mac systems with few changes from the examples provided here.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#115" class="lnkocn">115</a></label>
+  <p class="i0" id="115">
+    Install the newest Tor binary onto your system files using the following reference links. Many Linux repositorys also have the newest Tor binary also.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#116" class="lnkocn">116</a></label>
+  <p class="i0" id="116">
+    Tor Binary Only Downloads from torprojet.org Windows ‹<a href="https://www.torproject.org/download/download.html.en" target="_top">https://www.torproject.org/download/download.html.en</a>› Windows ‹<a href="https://www.torproject.org/dist/torbrowser/4.0.3/tor-win32-tor-0.2.5.10.zip" target="_top">https://www.torproject.org/dist/torbrowser/4.0.3/tor-win32-tor-0.2.5.10.zip</a>› Unix,Linux, BSD ‹<a href="https://www.torproject.org/download/download-unix.html.en" target="_top">https://www.torproject.org/download/download-unix.html.en</a>› Source Tarball ‹<a href="https://www.torproject.org/download/download.html.en" target="_top">https://www.torproject.org/download/download.html.en</a>›
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#117" class="lnkocn">117</a></label>
+  <p class="i0" id="117">
+    From Linux Ubuntu PPA
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#118" class="lnkocn">118</a></label>
+  <p class="code" id="118">
+    &nbsp;&nbsp;&nbsp;&nbsp;sudo add-apt-repository ppa:ubun-tor/ppa<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get update<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get install tor tor-geoipdb<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#119" class="lnkocn">119</a></label>
+  <p class="i0" id="119">
+    Test for system Tor binary version
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#120" class="lnkocn">120</a></label>
+  <p class="code" id="120">
+    &nbsp;&nbsp;&nbsp;&nbsp;tor --version<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tor version 0.2.5.10 &lt;-- Should be the same or newer.<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#121" class="lnkocn">121</a></label>
+  <p class="i0" id="121">
+    Once installed then change the tor and tor folders ownership from its existing administrative/superuser/root/debian-tor only ownership. Using Linux as an example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#122" class="lnkocn">122</a></label>
+  <p class="code" id="122">
+    &nbsp;&nbsp;&nbsp;&nbsp;whereis tor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tor: /usr/bin/tor /usr/sbin/tor /etc/tor /usr/bin/X11/tor /usr/local/bin/ /usr/local/etc/tor /usr/share/tor /usr/share/man/man1/tor.1.gz<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;locate torrc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/etc/tor/torrc<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;locate geoip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/tor/geoip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/tor/geoip6<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#123" class="lnkocn">123</a></label>
+  <p class="i0" id="123">
+    Copy the geoip, geoip6 files to the system folder you have the torrc file in these steps and examples.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#124" class="lnkocn">124</a></label>
+  <p class="code" id="124">
+    &nbsp;&nbsp;&nbsp;&nbsp;cd /var/lib/tor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cp geo* /etc/tor<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#125" class="lnkocn">125</a></label>
+  <p class="code" id="125">
+    &nbsp;&nbsp;&nbsp;&nbsp;sudo chown username -R /usr/bin/tor &lt;-- location of system tor binary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sudo chown username -R /etc/tor &lt;-- location of system torrc,geoip,geoip6 files<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#126" class="lnkocn">126</a></label>
+  <p class="i0" id="126">
+    Note: Older versions of the Tor Binary were stored in other system file locations, if you see those in the whereis command then rename or eliminate them entirely to prevent them from accidently getting autostarted and running concurrently in the background.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#127" class="lnkocn">127</a></label>
+  <p class="i0" id="127">
+    For example /usr/local/bin
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#128" class="lnkocn">128</a></label>
+  <p class="i0" id="128">
+    Example for Tor Hidden Service Folder Name with paths, ports. Your system paths will be different, your hidden service folder name and ports can be the same or changed as you wish then applied to the torrc file edit. Skip these hidden service steps if you only want Regular RS06 to connect to a Tor RS06 Hidden Service.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#129" class="lnkocn">129</a></label>
+  <p class="code" id="129">
+    &nbsp;&nbsp;&nbsp;&nbsp;HiddenServiceDir /home/name/hideserv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiddenServicePort 11040 127.0.0.1:12080<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#130" class="lnkocn">130</a></label>
+  <p class="i0" id="130">
+    Create your Tor Hidden Service Folder
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#131" class="lnkocn">131</a></label>
+  <p class="code" id="131">
+    &nbsp;&nbsp;&nbsp;&nbsp;mkdir /home/name/hideserv<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#132" class="lnkocn">132</a></label>
+  <p class="i0" id="132">
+    Rename the existing torrc file to torrc-original. Then using a text editor add and edit the following complete torrc file example then save it as torrc to the same folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#133" class="lnkocn">133</a></label>
+  <p class="i0" id="133">
+    Complete torrc file in /etc/tor system folder:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#134" class="lnkocn">134</a></label>
+  <p class="code" id="134">
+    &nbsp;&nbsp;&nbsp;&nbsp;# This file was generated by Tor; if you edit it, comments will not be preserved<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# The old torrc file was renamed to torrc.orig.1 or similar, and Tor will ignore it<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Log notice file /home/name/notices.log &lt;-- Your file path may differ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RunAsDaemon 1 &lt;--Optional For Non-Windows run at startup in background<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataDirectory /etc/tor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GeoIPFile /etc/tor/geoip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GeoIPv6File /etc/tor/geoip6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiddenServiceDir /home/name/hideserv &lt;-- Only for RS06 Tor HiddenNode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiddenServicePort 11040 127.0.0.1:12080 &lt;-- Only for RS06 Tor HiddenNode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;## Log notice stdout<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SocksPort 9050<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#135" class="lnkocn">135</a></label>
+  <p class="i0" id="135">
+    Now in terminal mode start Tor to see if you have any errors in your configuration and torrc file, if so then the log file should also echo the error msgs to guide you in correcting them.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#136" class="lnkocn">136</a></label>
+  <p class="code" id="136">
+    &nbsp;&nbsp;&nbsp;&nbsp;tor start<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#137" class="lnkocn">137</a></label>
+  <p class="i0" id="137">
+    If you are ONLY going to use your regular Retroshare 0.6 to connect to friends running a Hidden Node Retroshare 0.6 Tor Hidden Service then you are finished. Bootup your regular Retroshare 0.6 instance, choose Options -&gt; Network -&gt; Tor Configuration Port 9050 and confirm the Green Indicator that you are now torrified, congratulations. You can now trade and accept friends public RS06 keys with RS06 Hidden Node Tor users.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#138" class="lnkocn">138</a></label>
+  <p class="i0" id="138">
+    If you are going to additionally create your own Hidden Node Retroshare 0.6 Tor Hidden Service then using a text editor open the newly created hostname file where you created your /home/name/hideserv folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#139" class="lnkocn">139</a></label>
+  <p class="i0" id="139">
+    Example: gyzp2zrhw3owqa5y.onion and copy your torrc HiddenServicePort information Example: 11040 127.0.0.1:12080
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#140" class="lnkocn">140</a></label>
+  <p class="i0" id="140">
+    Note: Your Onion Address found in your hostname file will certainly be different from the above example.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#141" class="lnkocn">141</a></label>
+  <p class="i0" id="141">
+    Now add that information as it is requested during your creation/generation of a new instance Hidden Node Retroshare 0.6. Then bootup your new Hidden Node Retroshare 0.6 Tor Hidden Service and enter the same information in Options -&gt; Network -&gt; Tor Configuration. Select OK then choose Options -&gt; Server -&gt; Network Configuration and confirm your Retroshare 0.6 Hidden Node local address now reflects the correct Port. Example 12080
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#142" class="lnkocn">142</a></label>
+  <p class="i0" id="142">
+    Congratulations, you've extended the new Retroshare 0.6.0 beta platform to now actively have tor connections and in the additional step of adding a Tor Hidden Service, to also operate a Hidden Node Retroshare 0.6 as a Tor Hidden Service.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#143" class="lnkocn">143</a></label>
+  <p class="i0" id="143">
+    Note: At the time of adding the beginning,advanced and expert tor level steps for Retroshare 0.6, the button indicators in the Hidden Node RS06 instance (Options -&gt; Network -&gt; Tor Configuration, and Options -&gt; Server -&gt; Network Configuration) do not light-up green when Tor is configured correctly but remain grey/black. This is a todo item during the Retroshare 0.6.0 beta phase.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s04.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

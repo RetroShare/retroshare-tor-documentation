@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s02 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="c06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s03.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s01.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s01.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s02.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s02.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s03.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s04.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s04.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s04.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s05.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s06.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s06.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#180">
+    Tor Stealth Mode
+  </a>
+  </h5>
+
+<h6 class="minitoc">
+      <a href="s06.html#181">
+  What is a Tor Hidden Service Stealth Mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#183">
+  Why use a Tor Hidden Service Stealth mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#187">
+  Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#211">
+  Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+</a>
+  </h6>
+
+<h5 class="minitoc">
+      <a href="s06.html#232">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s07.html" target="_top">
+    FAQ
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s08.html" target="_top">
+    RetroShare FeedReader Via Tor
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s09.html" target="_top">
+    Tor Country Codes
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s10.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#25" class="lnkocn">25</a></label>
+  <h1 class="norm" id="25"><a name="25"></a>
+    The Onion Router (Tor) Installation
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#26" class="lnkocn">26</a></label>
+  <p class="i0" id="26">
+    Tor can be installed in a number of ways. In these steps, we'll outline and describe step-by-step 3 distinct ways to setup and successfully use Retroshare 0.6 through the onion router (Tor):
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#27" class="lnkocn">27</a></label>
+  <ul>
+  <li class="bullet" id="27">
+    [Beginners Level] <b>Tor browser bundle (TBB)</b>. This can be used as the Tor Router as it includes its own Tor binary. This is enough if you are just going to be using the Tor Bundled browser for your Tor Internet connections. This is useful for occasional regular Retroshare 0.6 routed through Tor to a friends Retroshare 0.6 Hidden Node (Tor Hidden Service). The Tor browser bundle must be up and running for the Tor connection to be enabled and is shut-down when the Tor browser bundle is exited or closed.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#28" class="lnkocn">28</a></label>
+  <ul>
+  <li class="bullet" id="28">
+    [Advanced Level] <b>The Vidalia-Tor Bundle</b>. This is the preferred Windows Users installation because it is both tiny and fast. You simply instruct your system to start the Vidalia Gui as your system boots up. The Tor binary ( The Onion Router ) only uses a small amount of systems resources which in nearly all cases is hardly even noticed. The outlined steps can be used following the included examples and applied to all computer platforms supporting Vidalia-Tor.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#29" class="lnkocn">29</a></label>
+  <ul>
+  <li class="bullet" id="29">
+    [Expert Level] <b>The Tor (compiled) binary alone</b> (which is installed in the system files). Many RetroShare 0.6 through Tor users following the suggested outlined steps and examples are fully capable of doing this themselves.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#30" class="lnkocn">30</a></label>
+  <p class="bold" id="30"><a name="30"></a> <a id="hc0.6"></a>
+    <a name="c0.6" ></a>RetroShare 0.6 Modes of Use With Tor
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#31" class="lnkocn">31</a></label>
+  <p class="i0" id="31">
+    RetroShare 0.6 through Tor can be used in one of two ways:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#32" class="lnkocn">32</a></label>
+  <ul>
+  <li class="bullet" id="32">
+    Regular RetroShare 0.6 through Tor to a RetroShare 0.6 hidden node routed through tor. This method relies on the tor binary, geoip, geoip6 tor library and the torrc configuration file which is installed with the TBB (Tor Browser Bundle), or the Vidalia-Tor Bundle or the Tor system file with the tor-geoipdb files.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#33" class="lnkocn">33</a></label>
+  <ul>
+  <li class="bullet" id="33">
+    Hidden Node RetroShare 0.6 through Tor operating as a hidden service. This method outlined in steps 2 and 3 below does not rely on the Tor Browser Bundle and requires above average computer knowledge and abilities.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#34" class="lnkocn">34</a></label>
+  <p class="bold" id="34"><a name="34"></a> 
+    Obtaining Tor
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#35" class="lnkocn">35</a></label>
+  <p class="i0" id="35">
+    Download the newest Tor Binary and install it on your system via this URL: ‹<a href="https://www.torproject.org/download/download.html.en" target="_top">https://www.torproject.org/download/download.html.en</a>› . For other GNU/Linux Systems the latest Tor Binary Stable as well as unstable builds can also be found there.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#36" class="lnkocn">36</a></label>
+  <p class="i0" id="36">
+    For more information about installing on:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#37" class="lnkocn">37</a></label>
+  <ul>
+  <li class="bullet" id="37">
+    Windows, visit ‹<a href="https://www.torproject.org/docs/tor-doc-windows.html.en" target="_top">https://www.torproject.org/docs/tor-doc-windows.html.en</a>›. If you want to use Tor as a client for other applications, download one of the Vidalia bundles and turn it into a client (Settings -&gt; Sharing -&gt; Run as a client only). Use Vidalia for configuration and testing operation on Windows.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#38" class="lnkocn">38</a></label>
+  <ul>
+  <li class="bullet" id="38">
+    MacOSX, visit ‹<a href="https://www.torproject.org/docs/tor-doc-osx.html.en" target="_top">https://www.torproject.org/docs/tor-doc-osx.html.en</a>›.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#39" class="lnkocn">39</a></label>
+  <p class="bold" id="39"><a name="39"></a> 
+    Reference Linux Files
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#40" class="lnkocn">40</a></label>
+  <p class="code" id="40">
+    &nbsp;&nbsp;&nbsp;&nbsp;sudo add-apt-repository ppa:ubun-tor/ppa<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get update<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get install tor tor-geoipdb vidalia<br>
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="c06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s03.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

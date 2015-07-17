@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s07 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s08.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s01.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s01.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s02.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s02.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s03.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s04.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s04.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s04.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s05.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s06.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s06.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#180">
+    Tor Stealth Mode
+  </a>
+  </h5>
+
+<h6 class="minitoc">
+      <a href="s06.html#181">
+  What is a Tor Hidden Service Stealth Mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#183">
+  Why use a Tor Hidden Service Stealth mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#187">
+  Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#211">
+  Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+</a>
+  </h6>
+
+<h5 class="minitoc">
+      <a href="s06.html#232">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s07.html" target="_top">
+    FAQ
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s08.html" target="_top">
+    RetroShare FeedReader Via Tor
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s09.html" target="_top">
+    Tor Country Codes
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s10.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#240" class="lnkocn">240</a></label>
+  <h1 class="norm" id="240"><a name="240"></a>
+    FAQ
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#241" class="lnkocn">241</a></label>
+  <p class="i0" id="241">
+    <b>Question</b> Does a hidden node attempt to connect directly to a regular node, thus leaking its IP address, because that would defeat the whole idea of using RS over tor?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#242" class="lnkocn">242</a></label>
+  <p class="i0" id="242">
+    <b>Answer</b> A RetroShare 0.6 Hidden Node operating as a Tor Hidden Service is communicating inside the Tor Network itself. Regular RetroShare 0.6 instances running the Tor configuration communicate to them by going through the Tor Network and there to the Hidden Node itself. The Hidden Node isn't reaching out trying to go through the clearnet persay to find any Regular RetroShare 0.6 instance running Tor.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#243" class="lnkocn">243</a></label>
+  <p class="i0" id="243">
+    <b>Question</b> I have been told that hidden services were not really intended as a core feature of Tor, and that Tor was really meant to be anonymous access to clear-net sites. However, hidden services works just fine so far as I can tell. <b>Answer</b> Yes, the Onion Router was designed from the beginning to be a encrypted network of proxy servers exiting to the clear-net to allow the USA Military, undercover agents and various informants working in a foreign nation to be able to anonymously communicate without being traced back to their point of origin.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#244" class="lnkocn">244</a></label>
+  <p class="i0" id="244">
+    Onion based Hidden Service website abilities were added later and seen as a ancillary service. In a security application, essential applications and tools need to be built and added at the core level itself. Ancillary is like tossing a tool into your vehicle trunk. You have it in your car but at best, its not optimal and likely never will be because its not at the very core level on the application itself. I2P which is newer than Tor, designed its Hidden Services epsites at its very core and beginning with utmost focus on them and their security at the very foundation and beginning of the Invisible Net I23P project.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#245" class="lnkocn">245</a></label>
+  <p class="i0" id="245">
+    <b>Question</b> There MAY be scalability issues, since only one instance of Tor can accept connections to one .onion address at a time.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#246" class="lnkocn">246</a></label>
+  <p class="i0" id="246">
+    <b>Answer</b> It is possible to run 3-4 different applications through a single Tor Binary router all concurrently. 1-2 Tor Hidden Services, Opera Browser through Tor, 1-2 Regular Nodes of RetroShare 0.6 also routed through Tor. That single tor binary is working concurrently with Dozens of Onion Addresses at the same time. Some Tor Purists that run a single tor binary router per their hidden services and other tor routed packages. With the tor binary taking so little resources and the possibility of further security running 1 per use, its a personal choice not a 'you must do it this way'.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#247" class="lnkocn">247</a></label>
+  <p class="i0" id="247">
+    Total Darknet via the Tor Network is not ideal. Although Tor developers are working to shore up Tor Hidden Services security and providing new much stronger alternatives to the way,way weak and ancient 1024bit asymmetric key pairs still being used, the reality is that Russia, China, USA and at least 32 other Nations State Sponsor attacks on the Tor Network, Tor Hidden Services, Exit Server Nodes and Tor Users themselves. Private business's also provide tools to discern Tor users, Tor users locations and to ban or blacklist tor users.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#248" class="lnkocn">248</a></label>
+  <p class="i0" id="248">
+    Tor now is a virtual minefield. The risks can be somewhat mitigated with additional steps in security and realistic use. Let's go through some suggestions and observations for both Tor Hidden Services as well as Tor Bundle Browser use.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#249" class="lnkocn">249</a></label>
+  <p class="i0" id="249">
+    1. Do not run the Tor Binary in Root/Administrator level. If a hacker through Tor breaks into your system they would gain root/administrative level control.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#250" class="lnkocn">250</a></label>
+  <p class="i0" id="250">
+    2. Weigh the benefits of running a Tor Hidden Service in True Stealth Mode if considering setting up and running a Tor Hidden Service and see if that is the approach you need Retroshare 0.6 Hidden Node Tor Stealth Mode
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#251" class="lnkocn">251</a></label>
+  <p class="i0" id="251">
+    3. Consider generating additional encoded, encrypted .onion address's along with their pathetic 1024bit keys to throw off any State Sponsored posse of thugs that somehow obtained a long used .onion address. This security step essentially is to change your .onion address now and then.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#252" class="lnkocn">252</a></label>
+  <p class="i0" id="252">
+    4. Pretending Tor use is entirely anonymous is entirely unrealistic. Posting threats of various natures online even via tor is likely to be responded to and then you'd be hunted down. Commanding your torrc file to exit a widely used Tor exit node or nodes helps to disperse you among a crowd of other specific Tor users but you still are not invisible so don't act like you are entirely invisible and could get away with anything.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#253" class="lnkocn">253</a></label>
+  <p class="i0" id="253">
+    5. A great many clear-net websites are configured now to immediately recognize you as a Tor user. This through discerning you are using tor as a proxy directly or via tor exit IPv4 lookup databases. What many new Tor Browser Bundle users are learning and never told is discovering many sites list the Tor exit IPv4 they are using as a proxy is banned or blacklisted or is immediately recognized and challenged with a image puzzle which TBB cannot successfully respond to.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#254" class="lnkocn">254</a></label>
+  <p class="i0" id="254">
+    6. Some clear-net Tor Browser users in the past have spammed many blogs, forums chatrooms causing those website owners and developers to either outright ban,block all tor users or blacklist the popular Tor exit servers IPv4 itself. A great many clear-net websites immediately discern a visitor is using Tor and automatically go through security measures in case you are trying to hack or attack that website. Instead of your intention to be nearly anonymous and invisible at clear-net websites, in many its quite the reverse with a clear-net websites security measures triggered and watching your every move and action. Your access to additional areas in that website can be and often is restricted, in some cases the security measures can return you endlessly back to a registration page just to play with you as a tor user.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#255" class="lnkocn">255</a></label>
+  <p class="i0" id="255">
+    7. To milk out the remaining anonymous ability from the onion router, a tor browser bundle user would seek out a city public wifi hotspot and remotely use that public wifi connection without registering with any administrator or IT staff. The stealth user would not drive a car to the wifi hotspot as license plates would easily trace back to them and they'd be aware of and avoid CCTV cameras in that entire area. If a unwanted response was generated by this use, a 1 mile radius around the public area at a specific time would be targeted and scanned by State Sponsored goons.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#256" class="lnkocn">256</a></label>
+  <p class="i0" id="256">
+    8. These steps are worthless if your computer or smart device has been attacked and a long storage object used by Obama's State Sponsored Tor attackers has been placed on your device which serves as a 'beacon' IDing YOU, your IPv4 and other information about YOU. In short if your system is leaking through the clear-net identifying information about YOU. Anti-Virus, Anti-Maleware may or may not find these. Only a few can remove LSO beacons that can remain 2+ years. I side with Kaspersky Labs software because it is not 'Made in USA' and has been foremost in exposing Israeli-USA Gov created maleware,virus's and worms which 'Made in USA' firms either hushed up or were PoliceState ordered to ignore. Windows OS, Windows Apps have additional built-in hidden ID information that is designed to leak as well and maleware locators, anti-virus applications are largely going to ignore those Microsoft product ID code entries.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s06.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s08.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

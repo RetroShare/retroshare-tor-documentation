@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    s06 -
+    RetroShare And Tor
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="RetroShare And Tor - A Manual For Configuration" />
+  <meta name="dc.author" content="Anonymous Smith" />
+  <meta name="dc.subject" content="ebook,configuring tor" />
+  <meta name="dc.publisher" content="SiSU http://www.jus.uio.no/sisu (this copy)" />
+  <meta name="dc.date" content="2015-07-15"  />
+  <meta name="dc.date.created" content="2015"  />
+  <meta name="dc.date.modified" content="2015-07-15"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2015. RetroShare Development Team." />
+
+  <meta name="generator" content="SiSU 7.1.5 of 2015w22/2 (2015-06-02) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s05.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s07.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="toc"><h1 class="minitoc">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+
+<h4 class="minitoc">
+      <a href="s01.html" target="_top">
+    Introduction
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s01.html#5">
+    What is Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#9">
+    Why use Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s01.html#11">
+    Requirements
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="c06.html" target="_top">
+    Retroshare 06 Hidden Node Set-Up Quick Overview
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s02.html" target="_top">
+    The Onion Router (Tor) Installation
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s02.html#30">
+    RetroShare 0.6 Modes of Use With Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#34">
+    Obtaining Tor
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s02.html#39">
+    Reference Linux Files
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s03.html" target="_top">
+    TBB Configuration With Regular RetroShare 0.6 [Beginner Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s04.html" target="_top">
+    Vidalia-Tor Bundle Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Advanced Level]
+  </a> 
+  </h4>
+
+<h6 class="minitoc">
+      <a href="s04.html#85">
+  Using the Vidalia Control Panel GUI Interface to Configure Hidden Service Data Information
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s04.html#88">
+  Optionally use a text editor to configure Vidalia Hidden Service Data information
+</a>
+  </h6>
+
+<h4 class="minitoc">
+      <a href="s05.html" target="_top">
+    Using only the Tor binary system file for Regular RetroShare 0.6 and Hidden Node RetroShare 0.6 through Tor as a Hidden Service Configuration [Expert Level]
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s06.html" target="_top">
+    Extra Tor Information
+  </a> 
+  </h4>
+
+<h5 class="minitoc">
+      <a href="s06.html#145">
+    Configuration of Tor Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#149">
+    How do I find a bridge relay?
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#153">
+    How To Use Bridges
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#166">
+    Higher Security
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#173">
+    Links for More Information
+  </a>
+  </h5>
+
+<h5 class="minitoc">
+      <a href="s06.html#180">
+    Tor Stealth Mode
+  </a>
+  </h5>
+
+<h6 class="minitoc">
+      <a href="s06.html#181">
+  What is a Tor Hidden Service Stealth Mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#183">
+  Why use a Tor Hidden Service Stealth mode?
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#187">
+  Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+</a>
+  </h6>
+
+<h6 class="minitoc">
+      <a href="s06.html#211">
+  Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+</a>
+  </h6>
+
+<h5 class="minitoc">
+      <a href="s06.html#232">
+    More Information For The Curious
+  </a>
+  </h5>
+
+<h4 class="minitoc">
+      <a href="s07.html" target="_top">
+    FAQ
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s08.html" target="_top">
+    RetroShare FeedReader Via Tor
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s09.html" target="_top">
+    Tor Country Codes
+  </a> 
+  </h4>
+
+<h4 class="minitoc">
+      <a href="s10.html" target="_top">
+    External links  Useful links to visit:
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    Index
+  </h1>
+
+<h4 class="minitoc">
+      <a href="book_index.html" target="_top">
+    Index
+  </a> 
+  </h4>
+
+<h1 class="minitoc">
+    <b><a href="metadata.html">Metadata</a></b>
+  </h1>
+
+<h4 class="minitoc">
+      <a href="metadata.html" target="_top">
+    SiSU Metadata, document information
+  </a> 
+  </h4>
+</div><div class="content">
+<h1 class="tiny">
+    RetroShare And Tor - A Manual For Configuration
+  </h1>
+</div><div class="content"><div class="substance">
+  <label class="ocn"><a href="#144" class="lnkocn">144</a></label>
+  <h1 class="norm" id="144"><a name="144"></a>
+    Extra Tor Information
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#145" class="lnkocn">145</a></label>
+  <p class="bold" id="145"><a name="145"></a> 
+    Configuration of Tor Bridges
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#146" class="lnkocn">146</a></label>
+  <p class="i0" id="146">
+    Tor Bridges are essentially unlisted Tor Relays. As there is no public list of them, Nations and ISP's blocking public known Tor relays very unlikely to block private unlisted Tor bridges.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#147" class="lnkocn">147</a></label>
+  <p class="i0" id="147">
+    Tor Bridges represent a important push-back and resistance to any outright blocking Tor by governments and ISPs.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#148" class="lnkocn">148</a></label>
+  <p class="i0" id="148">
+    Tor bridges will assist those affected RetroShare 0.6 users who are blocked from internet access to either regular RetroShare 06 instances or RetroShare 06 Tor users and RetroShare 06 Hidden Node Tor users.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#149" class="lnkocn">149</a></label>
+  <p class="bold" id="149"><a name="149"></a> 
+    How do I find a bridge relay?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#150" class="lnkocn">150</a></label>
+  <p class="i0" id="150">
+    There are two main ways to learn about a bridge address:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#151" class="lnkocn">151</a></label>
+  <ul>
+  <li class="bullet" id="151">
+    Get some friends to run private bridges for you
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#152" class="lnkocn">152</a></label>
+  <ul>
+  <li class="bullet" id="152">
+    Use some of the public bridges
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#153" class="lnkocn">153</a></label>
+  <p class="bold" id="153"><a name="153"></a> 
+    How To Use Bridges
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#154" class="lnkocn">154</a></label>
+  <p class="i0" id="154">
+    To use private bridges, ask your friends to run Vidalia and Tor in an uncensored area of the Internet, and then click on Help censored users in Vidalia's Relay settings page. Then they should privately send you the Bridge address line at the bottom of their Relay page. Unlike running an exit relay, running a bridge relay just passes data to and from the Tor network, so it shouldn't expose the operator to any abuse complaints.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#155" class="lnkocn">155</a></label>
+  <p class="i0" id="155">
+    You can find public bridge addresses by visiting ‹<a href="https://bridges.torproject.org" target="_top">https://bridges.torproject.org</a>›. The answers you get from that page will change every few days, so check back periodically if you need more bridge addresses.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#156" class="lnkocn">156</a></label>
+  <p class="i0" id="156">
+    Another way to find public bridge addresses is to send mail to ‹<a href="mailto:bridges@torproject.org">bridges@torproject.org</a>› with the line get bridges by itself in the body of the mail. However, to make it harder for an attacker to learn lots of bridge addresses, you must send this request from a Gmail account.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#157" class="lnkocn">157</a></label>
+  <p class="i0" id="157">
+    Configuring more than one bridge address will make your Tor connection more stable, in case some of the bridges become unreachable.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#158" class="lnkocn">158</a></label>
+  <p class="i0" id="158">
+    BridgeDB ‹<a href="https://bridges.torproject.org/" target="_top">https://bridges.torproject.org/</a>›
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#159" class="lnkocn">159</a></label>
+  <p class="i0" id="159">
+    It is important to get working Tor Bridges that do not require any pluggable transports nor IPv6 addressing: ‹<a href="https://bridges.torproject.org/options" target="_top">https://bridges.torproject.org/options</a>›
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#160" class="lnkocn">160</a></label>
+  <p class="i0" id="160">
+    Set those options and choose 'Get Bridges'.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#161" class="lnkocn">161</a></label>
+  <p class="i0" id="161">
+    The following are some examples of Tor bridges obtained when following the above steps:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#162" class="lnkocn">162</a></label>
+  <p class="code" id="162">
+    &nbsp;&nbsp;192.36.27.114:46216 92464dcbab62eb5e9ad6e4e1f6f020043dc988eb<br>
+&nbsp;&nbsp;212.227.102.198:9001 e7df66c4e2028d41fc9a24a7094e2785811915ca<br>
+&nbsp;&nbsp;118.106.159.147:443 113315c131c7be89f22c33468c3d0bb71faa1a24<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#163" class="lnkocn">163</a></label>
+  <p class="i0" id="163">
+    Using the Vidalia Gui or Tor Button on the Tor Browser, select 'Tor Network Settings'. Check box to 'My ISP blocks connections to the Tor network'. And enter each of the bridge lines you received in the above steps one at a time. Adding more than one Tor Bridge address line will make your Tor connection more stable and added insurance in case any of the other Tor bridges become unreachable.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#164" class="lnkocn">164</a></label>
+  <p class="i0" id="164">
+    Sharing your private Tor Bridge to help Tor friends overcome censorship and Internet blocking.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#165" class="lnkocn">165</a></label>
+  <p class="i0" id="165">
+    It is also possible to setup a free Tor Bridge using the Amazon EC2 cloud computing platform. The Tor Cloud project images quickly and easily setup your private Tor Bridge via a Tor Bridge virtual machine cloud based image.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#166" class="lnkocn">166</a></label>
+  <p class="bold" id="166"><a name="166"></a> 
+    Higher Security
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#167" class="lnkocn">167</a></label>
+  <p class="i0" id="167">
+    For higher security, obfuscation protocol plugins are used to camouflage the Tor internal data stream in the private Tor Bridge. While this is not a Tor Exit server, changing the Tor data relay to appear as different or as normal Internet data streams can assist to bypass Nations and ISPs censoring and firewall blocks which attempt to actively lock users out of all Tor access.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#168" class="lnkocn">168</a></label>
+  <p class="i0" id="168">
+    Some examples are
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#169" class="lnkocn">169</a></label>
+  <ul>
+  <li class="bullet" id="169">
+    obfs2
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#170" class="lnkocn">170</a></label>
+  <ul>
+  <li class="bullet" id="170">
+    obfs3 (this is the recommended solution),
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#171" class="lnkocn">171</a></label>
+  <ul>
+  <li class="bullet" id="171">
+    scramblesuit; and
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#172" class="lnkocn">172</a></label>
+  <ul>
+  <li class="bullet" id="172">
+    fte.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#173" class="lnkocn">173</a></label>
+  <p class="bold" id="173"><a name="173"></a> 
+    Links for More Information
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#174" class="lnkocn">174</a></label>
+  <ul>
+  <li class="bullet" id="174">
+    ‹<a href="https://cloud.torproject.org/" target="_top">https://cloud.torproject.org/</a>›
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#175" class="lnkocn">175</a></label>
+  <ul>
+  <li class="bullet" id="175">
+    ‹<a href="https://cloud.torproject.org/#get_started" target="_top">https://cloud.torproject.org/#get_started</a>›
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#176" class="lnkocn">176</a></label>
+  <ul>
+  <li class="bullet" id="176">
+    ‹<a href="https://www.torproject.org/docs/bridges#PluggableTransports" target="_top">https://www.torproject.org/docs/bridges#PluggableTransports</a>›
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#177" class="lnkocn">177</a></label>
+  <ul>
+  <li class="bullet" id="177">
+    Vidalia Bridge Bundle A Vidalia Bundle which is already configured for the user to quickly and easily be a Tor Bridge by default to help RetroShare 06 Tor users bypass Nations and ISPs which attempt to censor and prevent users from using the Tor Network. Tor Project Download Page ‹<a href="https://www.torproject.org/download/download.html.en" target="_top">https://www.torproject.org/download/download.html.en</a>›
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#178" class="lnkocn">178</a></label>
+  <ul>
+  <li class="bullet" id="178">
+    Vidalia Bridge Bundle (For Windows) ‹<a href="https://www.torproject.org/dist/vidalia-bundles/vidalia-bridge-bundle-0.2.4.23-0.2.21.exe" target="_top">https://www.torproject.org/dist/vidalia-bundles/vidalia-bridge-bundle-0.2.4.23-0.2.21.exe</a>›
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#179" class="lnkocn">179</a></label>
+  <ul>
+  <li class="bullet" id="179">
+    vidalia-bridge-bundle-0.2.4.23-0.2.21.exe
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#180" class="lnkocn">180</a></label>
+  <p class="bold" id="180"><a name="180"></a> 
+    Tor Stealth Mode
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#181" class="lnkocn">181</a></label>
+  <p class="bold" id="181"><a name="181"></a> 
+    What is a Tor Hidden Service Stealth Mode?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#182" class="lnkocn">182</a></label>
+  <p class="i0" id="182">
+    In Stealth Mode only clients that are listed in the torrc file are authorized to access the hidden service. Valid client names are 1 to 19 characters long and only use characters in A-Za-z0-9+-_ (no spaces). If this option is set, the tor hidden service is no longer accessible for clients without encrypted authorization. Encrypted generated authorization data can be found in the hostname file. Each peer must add this authorization data to their tor configuration file (torrc) using HidServAuth.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#183" class="lnkocn">183</a></label>
+  <p class="bold" id="183"><a name="183"></a> 
+    Why use a Tor Hidden Service Stealth mode?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#184" class="lnkocn">184</a></label>
+  <p class="i0" id="184">
+    With little effort, operators of RetroShare 0.6 Hidden Nodes operating thru Tor as a Hidden Service can apply full stealth mode to their tor connection. After doing so, anyone that attempts to connect to RetroShare 0.6 Hidden Node that does not have the custom Onion Address and Tor encrypted,encoded authorization data string you provide each of your friends, they cannot connect to that port. Like a customized knock code, the attacker, probe, sniffer is rebuffed without any indication that system port operating your RetroShare 0.6 Hidden Node is active in any fashion. Nothing at all is released nor shown to the probe connection when the RetroShare 0.6 Hidden Node is operating in Tor Stealth Mode.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#185" class="lnkocn">185</a></label>
+  <p class="i0" id="185">
+    While this is probably what Tor Hidden Services should have implimented as its default from the very beginning, the cost is that every peer that connects to a HiddenServiceAuthorizeClient Hidden Node must have a copy of the customized onion address and encrypted data string you provide them placed into their own torrc file.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#186" class="lnkocn">186</a></label>
+  <p class="i0" id="186">
+    Before making any changes, Hidden Tor Service Operators should backup the hostname and torrc files and shut-down Tor to make the changes following the example for each as needed. Tor clients should backup their torrc file and shut-down Tor to make the changes following securely recieving the HidServAuth onion-address auth-cookie information from the Hidden Tor Service Stealth Mode Operator.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#187" class="lnkocn">187</a></label>
+  <p class="bold" id="187"><a name="187"></a> 
+    Tor Hidden Service Server Side  HiddenServiceAuthorizeClient auth-type client-name,client-name,…
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#188" class="lnkocn">188</a></label>
+  <p class="i0" id="188">
+    If configured the hidden service is accessible for authorized clients only. The auth-type can either be 'basic' for a general-purpose authorization protocol or 'stealth' for a less scalable protocol that also hides service activity from unauthorized clients. Only clients that are listed here are authorized to access the hidden service. Valid client names are 1 to 16 characters long and only use characters in A-Za-z0-9+-_ (no spaces). If this option is set, the hidden service is not accessible for clients without authorization any more. Generated authorization data can be found in the hostname file. Clients need to put this authorization data in their configuration file using HidServAuth.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#189" class="lnkocn">189</a></label>
+  <p class="i0" id="189">
+    Example
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#190" class="lnkocn">190</a></label>
+  <p class="code" id="190">
+    HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#191" class="lnkocn">191</a></label>
+  <p class="i0" id="191">
+    Tor Client Side
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#192" class="lnkocn">192</a></label>
+  <p class="code" id="192">
+    HidServAuth onion-address auth-cookie [service-name] <br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#193" class="lnkocn">193</a></label>
+  <p class="i0" id="193">
+    Client authorization for a hidden service. Valid onion addresses contain 16 characters in a-z2-7 plus ".onion", and valid auth cookies contain 22 characters in A-Za-z0-9+/. The service name is only used for internal purposes, e.g., for Tor controllers. This option may be used multiple times for different hidden services. If a hidden service uses authorization and this option is not set, the hidden service is not accessible. Hidden services can be configured to require authorization using the HiddenServiceAuthorizeClient option
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#194" class="lnkocn">194</a></label>
+  <p class="i0" id="194">
+    Example
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#195" class="lnkocn">195</a></label>
+  <p class="code" id="195">
+    HidServAuth sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#196" class="lnkocn">196</a></label>
+  <p class="i0" id="196">
+    Reference Tor Manual ‹<a href="https://www.torproject.org/docs/tor-manual.html.en" target="_top">https://www.torproject.org/docs/tor-manual.html.en</a>›
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#197" class="lnkocn">197</a></label>
+  <p class="i0" id="197">
+    Direct Examples Hidden Node Operator and Clients torrc file additions.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#198" class="lnkocn">198</a></label>
+  <p class="code" id="198">
+    HiddenServiceAuthorizeClient stealth client-name,name,name,name &lt;-- Hidden Service torrc Stealth command configuration<br>
+HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002 &lt;-- Hidden Service Stealth torrc Example<br>
+HidServAuth onion-address auth-cookie &lt;-- Client Stealth Tor Hidden Service torrc command configuration<br>
+HidServAuth g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB &lt;-- Client Stealth Tor Hidden Service torrc Example<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#199" class="lnkocn">199</a></label>
+  <p class="i0" id="199">
+    Notice In the Tor Hidden Service torrc examples running in Stealth Mode for RS06 Friends ASmith,Gordon,Hidden, I use short nicnames or numbers for each Hidden Node Retroshare 0.6 Hidden Service Stealth Mode Tor Connection friends to your HiddenServiceAUthorizeClient where you see abc,001. I suggest you use 3 letters from RetroShare 0.6 friends usernames to keep this line compact however you can use numbers if you wish. You just must connect each short nicname or number to a specific friend/client to your Tor Hidden Service running in Stealth Mode.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#200" class="lnkocn">200</a></label>
+  <p class="i0" id="200">
+    HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#201" class="lnkocn">201</a></label>
+  <p class="i0" id="201">
+    Then the Tor Hidden Service Operator restarts Tor which generates a new hostname and client_keys file in their hidden server folder for each of your clients by nicnames or numbers.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#202" class="lnkocn">202</a></label>
+  <p class="i0" id="202">
+    In the new hostname file the Tor Hidden Service Operator finds
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#203" class="lnkocn">203</a></label>
+  <p class="code" id="203">
+    e2ffrxjzqs3li3um.onion mYOmu05+lIPoL46FCUuNQB # client: ASm<br>
+aqc9gjoq4aw2qufl.onion Z1vLvgTC1rOc2+JIZVZEjR # client: Gor<br>
+3phmajq5m5mnae3x.onion AyEgnImcoO+/IxFI/OORjx # client: Hid<br>
+4aw2quflaqc9gjoq.onion ZVZEjRZ1vLvgTC1rOc2+JI # client: 001<br>
+5mnae3x3phmajq5m.onion FI/OORjxAyEgnImcoO+/Ix # client: 002<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#204" class="lnkocn">204</a></label>
+  <p class="i0" id="204">
+    Then the Tor Hidden Service Operator securely provides to ASmith this line to add to their torrc file HidServAuth e2ffrxjzqs3li3um.onion mYOmu05+lIPoL46FCUuNQB
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#205" class="lnkocn">205</a></label>
+  <p class="i0" id="205">
+    Provides to Gordon this line to add to their torrc file HidServAuth aqc9gjoq4aw2qufl.onion Z1vLvgTC1rOc2+JIZVZEjR
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#206" class="lnkocn">206</a></label>
+  <p class="i0" id="206">
+    Provides to Hidden this line to add to their torrc file HidServAuth 3phmajq5m5mnae3x.onion AyEgnImcoO+/IxFI/OORjx
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#207" class="lnkocn">207</a></label>
+  <p class="i0" id="207">
+    Provides to someone you designate as 001 this line to add to their torrc file HidServAuth 4aw2quflaqc9gjoq.onion ZVZEjRZ1vLvgTC1rOc2+JI
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#208" class="lnkocn">208</a></label>
+  <p class="i0" id="208">
+    Provides to someone you designate as 002 this line to add to their torrc file HidServAuth 5mnae3x3phmajq5m.onion FI/OORjxAyEgnImcoO+/Ix
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#209" class="lnkocn">209</a></label>
+  <p class="i0" id="209">
+    Notice the encoded,encrypted Onion address is different for each client in the Stealth Mode. However each new Onion Address still connects back to the same Tor based Hidden Service.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#210" class="lnkocn">210</a></label>
+  <p class="i0" id="210">
+    Clients can also add additional HidServAuth lines to their torrc file to enable their authorization to additional Tor Hidden Services operating in stealth modes without problems. The additional Tor Hidden Service Operators running in stealth modes would provide the additional HidServAuth torrc line to add. Clients can also continue to connect to non-stealth Tor Hidden Services with and after these additions to their torrc file.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#211" class="lnkocn">211</a></label>
+  <p class="bold" id="211"><a name="211"></a> 
+    Misc.  Stopping/Killing all Tor Processes  If you already have tor running, stop all tor applications:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#212" class="lnkocn">212</a></label>
+  <p class="code" id="212">
+    
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#213" class="lnkocn">213</a></label>
+  <p class="i0" id="213">
+    Issue a torrc file configuration check for errors and for Tor Hidden Service Operators to automatically generate your new hostname and client_key files in your Hidden Service folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#214" class="lnkocn">214</a></label>
+  <p class="code" id="214">
+    
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#215" class="lnkocn">215</a></label>
+  <p class="code" id="215">
+    $ tor &lt;-- simply start tor<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#216" class="lnkocn">216</a></label>
+  <p class="i0" id="216">
+    If successful (not erroring out) and following the examples above, Tor Hidden Service Operators running in stealth mode find inside their new client_keys file in your Hidden Service folder a entry like this:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#217" class="lnkocn">217</a></label>
+  <p class="group" id="217">
+    client-name ASm<br>descriptor-cookie lXOmu05+lIPoL46FCUuNQB==<br>client-key<br>-----BEGIN RSA PRIVATE KEY-----<br>MIIDXQIBABKBgQDeaafSq5OlsFE00IQgeU0xuz1AuDqzWy4c3xdhG2dcB68i1R80<br>jt/YmtcMo6+8Pb/6PJT2oFuEPgAAIVNOxxgEtJ43krb6T/NMUVnL2yzc5EDsBsuW<br>yQuIkLcTeKq5aoasmwsNudAH0FuGer2qKXOPScU2Ldx/leQIusREnRVJ6wIDAQAB<br>AoGBAIe+loYW4BttHEv/A9VKE5o5vC3HA1S6Xs+SPZOwBQp/Sh4JU21hki+CeaQm<br>Nzi9u3EADq7juldg++EYdd8L1pTNLq9rsrNzE6losY67oWhlRIO9lCIozfHvjGi8<br>xd8d3vRFZv7qwUfg5MfbT3/CDfAQ1N2fps0/MwFn/Jix0XYRAkEA904iPXXichpf<br>Jmjxn+scfb03zh5V2ZHGvaqCrSZYHYjZ++3w4PmQnYlYzirG6vaIlKTAzrqGS7PX<br>JGAIyVnW+QJBAOY7ejQYIZpHuQ/PjlzenOhAsBe6xB0QM3F7m0b8L3U8OTAvN3kp<br>Fm7iP0+QexP0ci40mMyxv2TZhndoiWGuLQMCQBQFtWv4cV7/l5iKgpWJ+YKMoUoE<br>1rqIvOh6N55BLn0lqVBmUUxFqFm41wHKINTBJQmz1RBntZvHcbG2PL/gkDECQGWj<br>dDtzO8JkT2qPcoXFMPfHNvYD2XkLIerDarVXt4vF3mlLLu4qGWEyOEjju7H/hDip<br>t5sGDTx0W0xztdKNlgkCQQDAczBbamwkn4+W1qqS4gg11TzQD6oqnp0KYbz2aTeK<br>dkbuPpnZRhDAY0/EXPJOi5A7jkJK5IRm91YaQIDX7AQW<br>-----END RSA PRIVATE KEY-----<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#218" class="lnkocn">218</a></label>
+  <p class="i0" id="218">
+    And you'll find in your new hostname file in your Hidden Service folder a entry like this:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#219" class="lnkocn">219</a></label>
+  <p class="i0" id="219">
+    g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB # client: ASm
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#220" class="lnkocn">220</a></label>
+  <p class="i0" id="220">
+    To authorize ASm (shorthand for ASmith) in this example, you'd supply ASmith with the following to insert into their torrc file:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#221" class="lnkocn">221</a></label>
+  <p class="i0" id="221">
+    HidServAuth g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#222" class="lnkocn">222</a></label>
+  <p class="i0" id="222">
+    Repeat handing out each specific HidServAuth to each of your authorized friends (peers) following these examples collected from your hostname file inside your Hidden Service folder:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#223" class="lnkocn">223</a></label>
+  <p class="code" id="223">
+    sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS # client: Gor<br>
+3phmajq5m5mnae2x.onion ByEgnImcoO+/IxFI/OORjy # client: 001<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#224" class="lnkocn">224</a></label>
+  <p class="i0" id="224">
+    To authorize Gor (shorthand for Gordon) in this example, you'd supply Gordon with the following to insert into their torrc file:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#225" class="lnkocn">225</a></label>
+  <p class="code" id="225">
+    HidServAuth sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#226" class="lnkocn">226</a></label>
+  <p class="i0" id="226">
+    To authorize 001 (shorthand for Jenster) in this example, you'd supply Jenster with the following to insert into their torrc file:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#227" class="lnkocn">227</a></label>
+  <p class="code" id="227">
+    HidServAuth 3phmajq5m5mnae2x.onion ByEgnImcoO+/IxFI/OORjy<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#228" class="lnkocn">228</a></label>
+  <p class="i0" id="228">
+    You can later add additional authorized friends (clients) to your HiddenServiceAuthorizeClient stealth xyz, torrc entry
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#229" class="lnkocn">229</a></label>
+  <p class="i0" id="229">
+    You can later delete a previous authorized friend (client) from your:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#230" class="lnkocn">230</a></label>
+  <p class="code" id="230">
+    HiddenServiceAuthorizeClient torrc entry<br>
+client_keys file<br>
+hostname file<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#231" class="lnkocn">231</a></label>
+  <p class="code" id="231">
+    $ tor --verify-config&nbsp;&nbsp;&lt;-- Terminal command to check and update your tor configuration files<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#232" class="lnkocn">232</a></label>
+  <p class="bold" id="232"><a name="232"></a> 
+    More Information For The Curious
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#233" class="lnkocn">233</a></label>
+  <p class="i0" id="233">
+    The RS06 developers did not automate the process of modifying the torrc file and creating the hidden service folder because there are different restrictions using the system files tor binary versus the user located Tor binary in the Tor Browser Bundle. The system files Tor binary requires administrative/root/debian-tor permissions to read/write/modify the torrc file in the system file and in the Hidden Service folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#234" class="lnkocn">234</a></label>
+  <p class="i0" id="234">
+    It is important for computer security to prevent third party application with administrative/root/debian-tor permissions as a superuser on computer systems. To use the Tor binary in system files and not have to concurrently use the Tor Browser bundle while running multiple Tor applications including the RS06 Hidden Node.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#235" class="lnkocn">235</a></label>
+  <p class="i0" id="235">
+    The Tor Browser bundled Tor binary does not reside in the system files folders and therefore does not need administrative/root/debian-tor permissions to access,write and modify the Hidden Service folder.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#236" class="lnkocn">236</a></label>
+  <p class="i0" id="236">
+    An undocumented feature in Vidalia was discovered which automatically changed the permissions by the system files Tor binary to access/read/write/modify a user folder torrc file and write, access, modify the hidden service folder hostname, private_key files in a regular user created folder (for example in the notes previously is named which I choose to name vidalia-data).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#237" class="lnkocn">237</a></label>
+  <p class="i0" id="237">
+    This allows the advanced Tor user to use the system file Tor binary with a user stored, created, changed, updated torrc (tor configuration file). As outlined in the previous RS06 Tor steps, other files need to be added such as geoip, geoip6 and cert caches to the user created vidalia-data folder by simply copying those over from the ones created and supplied with the Tor Browser Bundle. ( /tor-browser_en-US/Browser/TorBrowser/Data/Tor folder files )
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#238" class="lnkocn">238</a></label>
+  <p class="i0" id="238">
+    If the system files Tor binary doesn't have the correct permissions to read, write and modify the torrc file then it simply supplys some dumbed-down default values which in the case of a Hidden Service operation are going to fail everytime.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#239" class="lnkocn">239</a></label>
+  <p class="i0" id="239">
+    These issues can be solved by adding the tiny Vidalia Gui interface which also allows the user instant debugging messages as well as other features for the user. The previous steps detailed above in the RS06 Tor pages how to use the system files tor binary with the Vidalia Gui interface.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <td align="center" bgcolor="#ffffff">
+  <a href="../../manifest/rs-tor.html" target="_top">
+      <font face="verdana, arial, georgia, tahoma, sans-serif, helvetica, times, roman" size="2">
+    [&nbsp;document&nbsp;manifest&nbsp;]
+  </font> 
+  </a>
+</td>
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="s05.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="s07.html" target="_top">
+    <img border="0" width="22" height="22" src="../../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>
