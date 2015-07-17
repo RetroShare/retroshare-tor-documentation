@@ -603,6 +603,193 @@ https://www.torproject.org/dist/vidalia-bundles/vidalia-bridge-bundle-0.2.4.23-0
 
 _* vidalia-bridge-bundle-0.2.4.23-0.2.21.exe
 
+2~ Tor Stealth Mode
+
+
+3~ What is a Tor Hidden Service Stealth Mode?
+
+In Stealth Mode only clients that are listed in the torrc file are authorized to access the hidden service. Valid client names are 1 to 19 characters long and only use characters in A-Za-z0-9+-_ (no spaces). If this option is set, the tor hidden service is no longer accessible for clients without encrypted authorization. Encrypted generated authorization data can be found in the hostname file. Each peer must add this authorization data to their tor configuration file (torrc) using HidServAuth.
+
+3~ Why use a Tor Hidden Service Stealth mode?
+
+With little effort, operators of RetroShare 0.6 Hidden Nodes operating thru Tor as a Hidden Service can apply full stealth mode to their tor connection. After doing so, anyone that attempts to connect to RetroShare 0.6 Hidden Node that does not have the custom Onion Address and Tor encrypted,encoded authorization data string you provide each of your friends, they cannot connect to that port. Like a customized knock code, the attacker, probe, sniffer is rebuffed without any indication that system port operating your RetroShare 0.6 Hidden Node is active in any fashion. Nothing at all is released nor shown to the probe connection when the RetroShare 0.6 Hidden Node is operating in Tor Stealth Mode.
+
+While this is probably what Tor Hidden Services should have implimented as its default from the very beginning, the cost is that every peer that connects to a HiddenServiceAuthorizeClient Hidden Node must have a copy of the customized onion address and encrypted data string you provide them placed into their own torrc file.
+
+Before making any changes, Hidden Tor Service Operators should backup the hostname and torrc files and shut-down Tor to make the changes following the example for each as needed. Tor clients should backup their torrc file and shut-down Tor to make the changes following securely recieving the HidServAuth onion-address auth-cookie information from the Hidden Tor Service Stealth Mode Operator. 
+
+3~ Tor Hidden Service Server Side
+HiddenServiceAuthorizeClient auth-type client-name,client-name,… 
+
+If configured the hidden service is accessible for authorized clients only. The auth-type can either be 'basic' for a general-purpose authorization protocol or 'stealth' for a less scalable protocol that also hides service activity from unauthorized clients. Only clients that are listed here are authorized to access the hidden service. Valid client names are 1 to 16 characters long and only use characters in A-Za-z0-9+-_ (no spaces). If this option is set, the hidden service is not accessible for clients without authorization any more. Generated authorization data can be found in the hostname file. Clients need to put this authorization data in their configuration file using HidServAuth. 
+
+Example 
+
+code{
+    
+HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002
+}code
+
+Tor Client Side
+
+code{ 
+    
+HidServAuth onion-address auth-cookie [service-name] 
+}code
+
+Client authorization for a hidden service. Valid onion addresses contain 16 characters in a-z2-7 plus ".onion", and valid auth cookies contain 22 characters in A-Za-z0-9+/. The service name is only used for internal purposes, e.g., for Tor controllers. This option may be used multiple times for different hidden services. If a hidden service uses authorization and this option is not set, the hidden service is not accessible. Hidden services can be configured to require authorization using the HiddenServiceAuthorizeClient option
+
+Example 
+
+code{
+    
+HidServAuth sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS
+}code
+
+Reference Tor Manual
+https://www.torproject.org/docs/tor-manual.html.en
+
+Direct Examples Hidden Node Operator and Clients torrc file additions.
+
+code{
+    
+HiddenServiceAuthorizeClient stealth client-name,name,name,name <-- Hidden Service torrc Stealth command configuration
+HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002 <-- Hidden Service Stealth torrc Example
+HidServAuth onion-address auth-cookie <-- Client Stealth Tor Hidden Service torrc command configuration
+HidServAuth g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB <-- Client Stealth Tor Hidden Service torrc Example
+}code
+
+Notice In the Tor Hidden Service torrc examples running in Stealth Mode for RS06 Friends ASmith,Gordon,Hidden, I use short nicnames or numbers for each Hidden Node Retroshare 0.6 Hidden Service Stealth Mode Tor Connection friends to your HiddenServiceAUthorizeClient where you see abc,001. I suggest you use 3 letters from RetroShare 0.6 friends usernames to keep this line compact however you can use numbers if you wish. You just must connect each short nicname or number to a specific friend/client to your Tor Hidden Service running in Stealth Mode.
+
+HiddenServiceAuthorizeClient stealth ASm,Gor,Hid,001,002
+
+Then the Tor Hidden Service Operator restarts Tor which generates a new hostname and client_keys file in their hidden server folder for each of your clients by nicnames or numbers.
+
+In the new hostname file the Tor Hidden Service Operator finds
+
+code{
+
+e2ffrxjzqs3li3um.onion mYOmu05+lIPoL46FCUuNQB # client: ASm
+aqc9gjoq4aw2qufl.onion Z1vLvgTC1rOc2+JIZVZEjR # client: Gor
+3phmajq5m5mnae3x.onion AyEgnImcoO+/IxFI/OORjx # client: Hid
+4aw2quflaqc9gjoq.onion ZVZEjRZ1vLvgTC1rOc2+JI # client: 001
+5mnae3x3phmajq5m.onion FI/OORjxAyEgnImcoO+/Ix # client: 002
+}code
+
+Then the Tor Hidden Service Operator securely provides to ASmith this line to add to their torrc file
+HidServAuth e2ffrxjzqs3li3um.onion mYOmu05+lIPoL46FCUuNQB
+
+Provides to Gordon this line to add to their torrc file
+HidServAuth aqc9gjoq4aw2qufl.onion Z1vLvgTC1rOc2+JIZVZEjR
+
+Provides to Hidden this line to add to their torrc file
+HidServAuth 3phmajq5m5mnae3x.onion AyEgnImcoO+/IxFI/OORjx
+
+Provides to someone you designate as 001 this line to add to their torrc file
+HidServAuth 4aw2quflaqc9gjoq.onion ZVZEjRZ1vLvgTC1rOc2+JI
+
+Provides to someone you designate as 002 this line to add to their torrc file
+HidServAuth 5mnae3x3phmajq5m.onion FI/OORjxAyEgnImcoO+/Ix
+
+Notice the encoded,encrypted Onion address is different for each client in the Stealth Mode. However each new Onion Address still connects back to the same Tor based Hidden Service.
+
+Clients can also add additional HidServAuth lines to their torrc file to enable their authorization to additional Tor Hidden Services operating in stealth modes without problems. The additional Tor Hidden Service Operators running in stealth modes would provide the additional HidServAuth torrc line to add. Clients can also continue to connect to non-stealth Tor Hidden Services with and after these additions to their torrc file.
+
+3~ Misc.
+Stopping/Killing all Tor Processes
+If you already have tor running, stop all tor applications:
+
+code{
+$ tor --service stop
+$ killall tor
+$ top
+$ kill tor[pid]
+}code
+
+Issue a torrc file configuration check for errors and for Tor Hidden Service Operators to automatically generate your new hostname and client_key files in your Hidden Service folder.
+
+code{
+    
+$ tor --verify-config <-- Verify the torrc file is valid
+}code
+or
+
+code{
+    
+$ tor <-- simply start tor
+}code
+
+If successful (not erroring out) and following the examples above, Tor Hidden Service Operators running in stealth mode find inside their new client_keys file in your Hidden Service folder a entry like this:
+
+group{
+    
+client-name ASm
+descriptor-cookie lXOmu05+lIPoL46FCUuNQB==
+client-key
+-----BEGIN RSA PRIVATE KEY-----
+MIIDXQIBABKBgQDeaafSq5OlsFE00IQgeU0xuz1AuDqzWy4c3xdhG2dcB68i1R80
+jt/YmtcMo6+8Pb/6PJT2oFuEPgAAIVNOxxgEtJ43krb6T/NMUVnL2yzc5EDsBsuW
+yQuIkLcTeKq5aoasmwsNudAH0FuGer2qKXOPScU2Ldx/leQIusREnRVJ6wIDAQAB
+AoGBAIe+loYW4BttHEv/A9VKE5o5vC3HA1S6Xs+SPZOwBQp/Sh4JU21hki+CeaQm
+Nzi9u3EADq7juldg++EYdd8L1pTNLq9rsrNzE6losY67oWhlRIO9lCIozfHvjGi8
+xd8d3vRFZv7qwUfg5MfbT3/CDfAQ1N2fps0/MwFn/Jix0XYRAkEA904iPXXichpf
+Jmjxn+scfb03zh5V2ZHGvaqCrSZYHYjZ++3w4PmQnYlYzirG6vaIlKTAzrqGS7PX
+JGAIyVnW+QJBAOY7ejQYIZpHuQ/PjlzenOhAsBe6xB0QM3F7m0b8L3U8OTAvN3kp
+Fm7iP0+QexP0ci40mMyxv2TZhndoiWGuLQMCQBQFtWv4cV7/l5iKgpWJ+YKMoUoE
+1rqIvOh6N55BLn0lqVBmUUxFqFm41wHKINTBJQmz1RBntZvHcbG2PL/gkDECQGWj
+dDtzO8JkT2qPcoXFMPfHNvYD2XkLIerDarVXt4vF3mlLLu4qGWEyOEjju7H/hDip
+t5sGDTx0W0xztdKNlgkCQQDAczBbamwkn4+W1qqS4gg11TzQD6oqnp0KYbz2aTeK
+dkbuPpnZRhDAY0/EXPJOi5A7jkJK5IRm91YaQIDX7AQW
+-----END RSA PRIVATE KEY-----
+}group
+
+And you'll find in your new hostname file in your Hidden Service folder a entry like this:
+
+g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB # client: ASm
+
+To authorize ASm (shorthand for ASmith) in this example, you'd supply ASmith with the following to insert into their torrc file:
+
+HidServAuth g4efrxjzqs3li3un.onion lXOmu05+lIPoL46FCUuNQB
+
+Repeat handing out each specific HidServAuth to each of your authorized friends (peers) following these examples collected from your hostname file inside your Hidden Service folder:
+
+code{
+    
+sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS # client: Gor
+3phmajq5m5mnae2x.onion ByEgnImcoO+/IxFI/OORjy # client: 001
+}code
+
+To authorize Gor (shorthand for Gordon) in this example, you'd supply Gordon with the following to insert into their torrc file:
+
+code{
+    
+HidServAuth sqc4gjoq4aw2qufl.onion Y1vLvgTC1rOc2+JIZVZEjS
+}code
+
+To authorize 001 (shorthand for Jenster) in this example, you'd supply Jenster with the following to insert into their torrc file:
+
+code{
+    
+HidServAuth 3phmajq5m5mnae2x.onion ByEgnImcoO+/IxFI/OORjy
+}code
+
+You can later add additional authorized friends (clients) to your HiddenServiceAuthorizeClient stealth xyz, torrc entry
+
+You can later delete a previous authorized friend (client) from your:
+
+code{
+    
+HiddenServiceAuthorizeClient torrc entry
+client_keys file
+hostname file
+
+}code
+
+code{
+    
+$ tor --verify-config  <-- Terminal command to check and update your tor configuration files
+}code
+
 2~ More Information For The Curious
 
 The RS06 developers did not automate the process of modifying the torrc file and creating the hidden service folder because there are different restrictions using the system files tor binary versus the user located Tor binary in the Tor Browser Bundle. The system files Tor binary requires administrative/root/debian-tor permissions to read/write/modify the torrc file in the system file and in the Hidden Service folder. 
@@ -618,6 +805,361 @@ This allows the advanced Tor user to use the system file Tor binary with a user 
 If the system files Tor binary doesn't have the correct permissions to read, write and modify the torrc file then it simply supplys some dumbed-down default values which in the case of a Hidden Service operation are going to fail everytime.
 
 These issues can be solved by adding the tiny Vidalia Gui interface which also allows the user instant debugging messages as well as other features for the user. The previous steps detailed above in the RS06 Tor pages how to use the system files tor binary with the Vidalia Gui interface.
+
+1~ FAQ
+
+!{Question}!
+Does a hidden node attempt to connect directly to a regular node, thus leaking its IP address, because that would defeat the whole idea of using RS over tor?
+
+!{Answer}!
+A RetroShare 0.6 Hidden Node operating as a Tor Hidden Service is communicating inside the Tor Network itself. Regular RetroShare 0.6 instances running the Tor configuration communicate to them by going through the Tor Network and there to the Hidden Node itself. The Hidden Node isn't reaching out trying to go through the clearnet persay to find any Regular RetroShare 0.6 instance running Tor.
+
+!{Question}!
+I have been told that hidden services were not really intended as a core feature of Tor, and that Tor was really meant to be anonymous access to clear-net sites. However, hidden services works just fine so far as I can tell.
+!{Answer}!
+Yes, the Onion Router was designed from the beginning to be a encrypted network of proxy servers exiting to the clear-net to allow the USA Military, undercover agents and various informants working in a foreign nation to be able to anonymously communicate without being traced back to their point of origin.
+
+Onion based Hidden Service website abilities were added later and seen as a ancillary service. In a security application, essential applications and tools need to be built and added at the core level itself. Ancillary is like tossing a tool into your vehicle trunk. You have it in your car but at best, its not optimal and likely never will be because its not at the very core level on the application itself. I2P which is newer than Tor, designed its Hidden Services epsites at its very core and beginning with utmost focus on them and their security at the very foundation and beginning of the Invisible Net I23P project.
+
+!{Question}!
+There MAY be scalability issues, since only one instance of Tor can accept connections to one .onion address at a time.
+
+!{Answer}!
+It is possible to run 3-4 different applications through a single Tor Binary router all concurrently. 1-2 Tor Hidden Services, Opera Browser through Tor, 1-2 Regular Nodes of RetroShare 0.6 also routed through Tor. That single tor binary is working concurrently with Dozens of Onion Addresses at the same time. Some Tor Purists that run a single tor binary router per their hidden services and other tor routed packages. With the tor binary taking so little resources and the possibility of further security running 1 per use, its a personal choice not a 'you must do it this way'.
+
+Total Darknet via the Tor Network is not ideal. Although Tor developers are working to shore up Tor Hidden Services security and providing new much stronger alternatives to the way,way weak and ancient 1024bit asymmetric key pairs still being used, the reality is that Russia, China, USA and at least 32 other Nations State Sponsor attacks on the Tor Network, Tor Hidden Services, Exit Server Nodes and Tor Users themselves. Private business's also provide tools to discern Tor users, Tor users locations and to ban or blacklist tor users.
+
+Tor now is a virtual minefield. The risks can be somewhat mitigated with additional steps in security and realistic use. Let's go through some suggestions and observations for both Tor Hidden Services as well as Tor Bundle Browser use.
+
+# Do not run the Tor Binary in Root/Administrator level. If a hacker through Tor breaks into your system they would gain root/administrative level control.
+
+# Weigh the benefits of running a Tor Hidden Service in True Stealth Mode if considering setting up and running a Tor Hidden Service and see if that is the approach you need Retroshare 0.6 Hidden Node Tor Stealth Mode
+
+# Consider generating additional encoded, encrypted .onion address's along with their pathetic 1024bit keys to throw off any State Sponsored posse of thugs that somehow obtained a long used .onion address. This security step essentially is to change your .onion address now and then.
+
+# Pretending Tor use is entirely anonymous is entirely unrealistic. Posting threats of various natures online even via tor is likely to be responded to and then you'd be hunted down. Commanding your torrc file to exit a widely used Tor exit node or nodes helps to disperse you among a crowd of other specific Tor users but you still are not invisible so don't act like you are entirely invisible and could get away with anything.
+
+# A great many clear-net websites are configured now to immediately recognize you as a Tor user. This through discerning you are using tor as a proxy directly or via tor exit IPv4 lookup databases. What many new Tor Browser Bundle users are learning and never told is discovering many sites list the Tor exit IPv4 they are using as a proxy is banned or blacklisted or is immediately recognized and challenged with a image puzzle which TBB cannot successfully respond to. 
+
+# Some clear-net Tor Browser users in the past have spammed many blogs, forums chatrooms causing those website owners and developers to either outright ban,block all tor users or blacklist the popular Tor exit servers IPv4 itself. A great many clear-net websites immediately discern a visitor is using Tor and automatically go through security measures in case you are trying to hack or attack that website. Instead of your intention to be nearly anonymous and invisible at clear-net websites, in many its quite the reverse with a clear-net websites security measures triggered and watching your every move and action. Your access to additional areas in that website can be and often is restricted, in some cases the security measures can return you endlessly back to a registration page just to play with you as a tor user.
+
+# To milk out the remaining anonymous ability from the onion router, a tor browser bundle user would seek out a city public wifi hotspot and remotely use that public wifi connection without registering with any administrator or IT staff. The stealth user would not drive a car to the wifi hotspot as license plates would easily trace back to them and they'd be aware of and avoid CCTV cameras in that entire area. If a unwanted response was generated by this use, a 1 mile radius around the public area at a specific time would be targeted and scanned by State Sponsored goons.
+
+# These steps are worthless if your computer or smart device has been attacked and a long storage object used by Obama's State Sponsored Tor attackers has been placed on your device which serves as a 'beacon' IDing YOU, your IPv4 and other information about YOU. In short if your system is leaking through the clear-net identifying information about YOU. Anti-Virus, Anti-Maleware may or may not find these. Only a few can remove LSO beacons that can remain 2+ years. I side with Kaspersky Labs software because it is not 'Made in USA' and has been foremost in exposing Israeli-USA Gov created maleware,virus's and worms which 'Made in USA' firms either hushed up or were PoliceState ordered to ignore. Windows OS, Windows Apps have additional built-in hidden ID information that is designed to leak as well and maleware locators, anti-virus applications are largely going to ignore those Microsoft product ID code entries.
+
+1~ RetroShare FeedReader Via Tor
+
+With the Tor Binary or Vidalia-Tor Bundle running on  your computer system (socks5 port 9050), it's quite easy to add your Retroshare 0.6 FeedReader Plugin RSS feeds to provide updates from the http clearnet after traveling through Tor on your system.
+
+When creating a new Feed or editing an existing Feed, uncheck the 'Use standard proxy' box. Then add:
+
+code{
+    Server 127.0.0.1 : 9050
+}code    
+
+Chose OK the select Update Feed. If you recieve a 'wait, updating' brief message without any errors being reported you are now using the Tor Network to obtain your FeedReader Feed.
+
+This can also be additionally placed in Retroshare 0.6 Options - FeedReader where beneath Proxy you check the box near Use proxy and enter:
+
+code{
+    
+Server 127.0.0.1 : 9050
+}code
+
+1~ Tor Country Codes
+
+Tor has the ability to let you choose which exit nodes you'd like to use - either by name, fingerprint, or country code. If you have a trusted list of nodes you'd like to use as a whitelist, you can use that, or if you have a list of nodes on a blacklist, it supports that configuration.
+
+The configuration is simple, modify your torrc file to add the follwoing line to ensure Tor will only use a country based exit nodes making it appear you are in that nation and using one of that nations IP address's:
+
+Torrc (Tor Configuration File) insert examples:
+
+code{
+    ExitNodes {us}  <-- Use Only USA Exit Nodes
+    StrictNodes 1 <-- You must enable StrictNodes
+
+ExitNodes {br}  <-- Use Only BRICs Founder Brazil Exit Nodes
+StrictNodes 1 <-- You must enable StrictNodes
+
+ExitNodes {in},{br},{za},{ar},{id},{bd},{my} <-- Use Only India,Brazil,Argentina,Indonesia,Bangladesh,Malaysia Exit Nodes
+StrictNodes 1 <-- You must enable StrictNodes
+}code
+
+Perhaps you want to bypass exits inside the West's covert Urkaines warzone, insert example:
+
+code{
+    ExcludeExitNodes {ua}
+}code    
+
+Perhaps you want to entirely exclude all USA node types fearing NSA poisoning including exits,relays,entry,bridge nodes, insert example:
+
+code{
+    ExcludeNodes {us}
+}code
+
+code{
+List of country codes for Tor
+  Country 	Abbrev
+  ASCENSION ISLAND 	{ac}
+  AFGHANISTAN 	{af}
+  ALAND 	{ax}
+  ALBANIA 	{al}
+  ALGERIA 	{dz}
+  ANDORRA 	{ad}
+  ANGOLA 	{ao}
+  ANGUILLA 	{ai}
+  ANTARCTICA 	{aq}
+  ANTIGUA AND BARBUDA 	{ag}
+  ARGENTINA REPUBLIC 	{ar}
+  ARMENIA 	{am}
+  ARUBA 	{aw}
+  AUSTRALIA 	{au}
+  AUSTRIA 	{at}
+  AZERBAIJAN 	{az}
+  BAHAMAS 	{bs}
+  BAHRAIN 	{bh}
+  BANGLADESH 	{bd}
+  BARBADOS 	{bb}
+  BELARUS 	{by}
+  BELGIUM 	{be}
+  BELIZE 	{bz}
+  BENIN 	{bj}
+  BERMUDA 	{bm}
+  BHUTAN 	{bt}
+  BOLIVIA 	{bo}
+  BOSNIA AND HERZEGOVINA 	{ba}
+  BOTSWANA 	{bw}
+  BOUVET ISLAND 	{bv}
+  BRAZIL 	{br}
+  BRITISH INDIAN OCEAN TERR 	{io}
+  BRITISH VIRGIN ISLANDS 	{vg}
+  BRUNEI DARUSSALAM 	{bn}
+  BULGARIA 	{bg}
+  BURKINA FASO 	{bf}
+  BURUNDI 	{bi}
+  CAMBODIA 	{kh}
+  CAMEROON 	{cm}
+  CANADA 	{ca}
+  CAPE VERDE 	{cv}
+  CAYMAN ISLANDS 	{ky}
+  CENTRAL AFRICAN REPUBLIC 	{cf}
+  CHAD 	{td}
+  CHILE 	{cl}
+  PEOPLE’S REPUBLIC OF CHINA 	{cn}
+  CHRISTMAS ISLANDS 	{cx}
+  COCOS ISLANDS 	{cc}
+  COLOMBIA 	{co}
+  COMORAS 	{km}
+  CONGO 	{cg}
+  CONGO (DEMOCRATIC REPUBLIC) 	{cd}
+  COOK ISLANDS 	{ck}
+  COSTA RICA 	{cr}
+  COTE D IVOIRE 	{ci}
+  CROATIA 	{hr}
+  CUBA 	{cu}
+  CYPRUS 	{cy}
+  CZECH REPUBLIC 	{cz}
+  DENMARK 	{dk}
+  DJIBOUTI 	{dj}
+  DOMINICA 	{dm}
+  DOMINICAN REPUBLIC 	{do}
+  EAST TIMOR 	{tp}
+  ECUADOR 	{ec}
+  EGYPT 	{eg}
+  EL SALVADOR 	{sv}
+  EQUATORIAL GUINEA 	{gq}
+  ESTONIA 	{ee}
+  ETHIOPIA 	{et}
+  FALKLAND ISLANDS 	{fk}
+  FAROE ISLANDS 	{fo}
+  FIJI 	{fj}
+  FINLAND 	{fi}
+  FRANCE 	{fr}
+  FRANCE METROPOLITAN 	{fx}
+  FRENCH GUIANA 	{gf}
+  FRENCH POLYNESIA 	{pf}
+  FRENCH SOUTHERN TERRITORIES 	{tf}
+  GABON 	{ga}
+  GAMBIA 	{gm}
+  GEORGIA 	{ge}
+  GERMANY 	{de}
+  GHANA 	{gh}
+  GIBRALTER 	{gi}
+  GREECE 	{gr}
+  GREENLAND 	{gl}
+  GRENADA 	{gd}
+  GUADELOUPE 	{gp}
+  GUAM 	{gu}
+  GUATEMALA 	{gt}
+  GUINEA 	{gn}
+  GUINEA-BISSAU 	{gw}
+  GUYANA 	{gy}
+  HAITI 	{ht}
+  HEARD & MCDONALD ISLAND 	{hm}
+  HONDURAS 	{hn}
+  HONG KONG 	{hk}
+  HUNGARY 	{hu}
+  ICELAND 	{is}
+  INDIA 	{in}
+  INDONESIA 	{id}
+  IRAN, ISLAMIC REPUBLIC OF 	{ir}
+  IRAQ 	{iq}
+  IRELAND 	{ie}
+  ISLE OF MAN 	{im}
+  ISRAEL 	{il}
+  ITALY 	{it}
+  JAMAICA 	{jm}
+  JAPAN 	{jp}
+  JORDAN 	{jo}
+  KAZAKHSTAN 	{kz}
+  KENYA 	{ke}
+  KIRIBATI 	{ki}
+  KOREA, DEM. PEOPLES REP OF 	{kp}
+  KOREA, REPUBLIC OF 	{kr}
+  KUWAIT 	{kw}
+  KYRGYZSTAN 	{kg}
+  LAO PEOPLE’S DEM. REPUBLIC 	{la}
+  LATVIA 	{lv}
+  LEBANON 	{lb}
+  LESOTHO 	{ls}
+  LIBERIA 	{lr}
+  LIBYAN ARAB JAMAHIRIYA 	{ly}
+  LIECHTENSTEIN 	{li}
+  LITHUANIA 	{lt}
+  LUXEMBOURG 	{lu}
+  MACAO 	{mo}
+  MACEDONIA 	{mk}
+  MADAGASCAR 	{mg}
+  MALAWI 	{mw}
+  MALAYSIA 	{my}
+  MALDIVES 	{mv}
+  MALI 	{ml}
+  MALTA 	{mt}
+  MARSHALL ISLANDS 	{mh}
+  MARTINIQUE 	{mq}
+  MAURITANIA 	{mr}
+  MAURITIUS 	{mu}
+  MAYOTTE 	{yt}
+  MEXICO 	{mx}
+  MICRONESIA 	{fm}
+  MOLDAVA REPUBLIC OF 	{md}
+  MONACO 	{mc}
+  MONGOLIA 	{mn}
+  MONTENEGRO 	{me}
+  MONTSERRAT 	{ms}
+  MOROCCO 	{ma}
+  MOZAMBIQUE 	{mz}
+  MYANMAR 	{mm}
+  NAMIBIA 	{na}
+  NAURU 	{nr}
+  NEPAL 	{np}
+  NETHERLANDS ANTILLES 	{an}
+  NETHERLANDS, THE 	{nl}
+  NEW CALEDONIA 	{nc}
+  NEW ZEALAND 	{nz}
+  NICARAGUA 	{ni}
+  NIGER 	{ne}
+  NIGERIA 	{ng}
+  NIUE 	{nu}
+  NORFOLK ISLAND 	{nf}
+  NORTHERN MARIANA ISLANDS 	{mp}
+  NORWAY 	{no}
+  OMAN 	{om}
+  PAKISTAN 	{pk}
+  PALAU 	{pw}
+  PALESTINE 	{ps}
+  PANAMA 	{pa}
+  PAPUA NEW GUINEA 	{pg}
+  PARAGUAY 	{py}
+  PERU 	{pe}
+  PHILIPPINES (REPUBLIC OF THE) 	{ph}
+  PITCAIRN 	{pn}
+  POLAND 	{pl}
+  PORTUGAL 	{pt}
+  PUERTO RICO 	{pr}
+  QATAR 	{qa}
+  REUNION 	{re}
+  ROMANIA 	{ro}
+  RUSSIAN FEDERATION 	{ru}
+  RWANDA 	{rw}
+  SAMOA 	{ws}
+  SAN MARINO 	{sm}
+  SAO TOME/PRINCIPE 	{st}
+  SAUDI ARABIA 	{sa}
+  SCOTLAND 	{uk}
+  SENEGAL 	{sn}
+  SERBIA 	{rs}
+  SEYCHELLES 	{sc}
+  SIERRA LEONE 	{sl}
+  SINGAPORE 	{sg}
+  SLOVAKIA 	{sk}
+  SLOVENIA 	{si}
+  SOLOMON ISLANDS 	{sb}
+  SOMALIA 	{so}
+  SOMOA,GILBERT,ELLICE ISLANDS 	{as}
+  SOUTH AFRICA 	{za}
+  SOUTH GEORGIA, SOUTH SANDWICH ISLANDS 	{gs}
+  SOVIET UNION 	{su}
+  SPAIN 	{es}
+  SRI LANKA 	{lk}
+  ST. HELENA 	{sh}
+  ST. KITTS AND NEVIS 	{kn}
+  ST. LUCIA 	{lc}
+  ST. PIERRE AND MIQUELON 	{pm}
+  ST. VINCENT & THE GRENADINES 	{vc}
+  SUDAN 	{sd}
+  SURINAME 	{sr}
+  SVALBARD AND JAN MAYEN 	{sj}
+  SWAZILAND 	{sz}
+  SWEDEN 	{se}
+  SWITZERLAND 	{ch}
+  SYRIAN ARAB REPUBLIC 	{sy}
+  TAIWAN 	{tw}
+  TAJIKISTAN 	{tj}
+  TANZANIA, UNITED REPUBLIC OF 	{tz}
+  THAILAND 	{th}
+  TOGO 	{tg}
+  TOKELAU 	{tk}
+  TONGA 	{to}
+  TRINIDAD AND TOBAGO 	{tt}
+  TUNISIA 	{tn}
+  TURKEY 	{tr}
+  TURKMENISTAN 	{tm}
+  TURKS AND CALCOS ISLANDS 	{tc}
+  TUVALU 	{tv}
+  UGANDA 	{ug}
+  UKRAINE 	{ua}
+  UNITED ARAB EMIRATES 	{ae}
+  UNITED KINGDOM (no new registrations) 	{gb}
+  UNITED KINGDOM 	{uk}
+  UNITED STATES 	{us}
+  UNITED STATES MINOR OUTL.IS. 	{um}
+  URUGUAY 	{uy}
+  UZBEKISTAN 	{uz}
+  VANUATU 	{vu}
+  VATICAN CITY STATE 	{va}
+  VENEZUELA 	{ve}
+  VIET NAM 	{vn}
+  VIRGIN ISLANDS (USA) 	{vi}
+  WALLIS AND FUTUNA ISLANDS 	{wf}
+  WESTERN SAHARA 	{eh}
+  YEMEN 	{ye}
+  ZAMBIA 	{zm}
+  ZIMBABWE 	{zw}
+}code
+
+BRIC's nations India,Brazil,South Africa (founders) and new BRICs members Argentina,Indonesia,Bangladesh are viewed as Secure and Respect users Privacys and Anonymous Data. Malaysia also appears to respect their online users privacys.
+
+India {in} <-- BRICs Founder
+Brazil {br} <-- BRICs Founder
+South Africa {za} <-- BRICs Founder
+Argentina {ar} <-- Joining BRICs
+Indonesia {id} <-- Joining BRICs
+Bangladesh {bd} <-- Joining BRICs
+Malaysia {my} <-- Protects Citizens Rights
+
+Reference:
+https://b3rn3d.herokuapp.com/blog/2014/03/05/tor-country-codes/
 
 1~ External links
 Useful links to visit:
